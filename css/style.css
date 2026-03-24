@@ -904,3 +904,23 @@ ul { list-style: none; }
   .hero__actions { flex-direction: column; align-items: stretch; }
   .hero__actions .btn { width: 100%; }
 }
+
+/* ===== FREE BUSINESS CHECKUP SECTION ===== */
+.checkup-section { background: var(--surface, #0d1117); }
+.checkup-section__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.checkup-section__title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: #fff; margin-bottom: 1rem; line-height: 1.2; }
+.checkup-section__sub { color: #aaa; margin-bottom: 1.5rem; line-height: 1.7; }
+.checkup-section__list { list-style: none; padding: 0; margin: 0 0 2rem; }
+.checkup-section__list li { color: #ccc; padding: 0.4rem 0; font-size: 0.95rem; }
+.checkup-card { background: #111820; border: 1px solid #1e2d3d; border-radius: 12px; overflow: hidden; }
+.checkup-card__header { background: #0a1628; color: #00D4FF; padding: 1rem 1.25rem; font-weight: 600; font-size: 0.9rem; }
+.checkup-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1.25rem; border-bottom: 1px solid #1e2d3d; font-size: 0.9rem; }
+.checkup-item:last-of-type { border-bottom: none; }
+.checkup-item--bad { color: #ccc; }
+.checkup-item--bad .checkup-item__icon { color: #ff4444; }
+.checkup-card__footer { background: #0a1628; color: #00D4FF; padding: 1rem 1.25rem; font-size: 0.85rem; font-weight: 500; }
+.pricing__grid--three { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) {
+  .checkup-section__inner { grid-template-columns: 1fr; gap: 2rem; }
+  .pricing__grid--three { grid-template-columns: 1fr; }
+}
