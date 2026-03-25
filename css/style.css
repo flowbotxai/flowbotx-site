@@ -917,7 +917,7 @@ ul { list-style: none; }
 .checkup-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1.25rem; border-bottom: 1px solid #1e2d3d; font-size: 0.9rem; }
 .checkup-item:last-of-type { border-bottom: none; }
 .checkup-item--bad { color: #ccc; }
-.checkup-item--bad .checkup-item__icon { color: #ff4444; }
+.checkup-item--bad .checkup-item__icon { color: #00D4FF; }
 .checkup-card__footer { background: #0a1628; color: #00D4FF; padding: 1rem 1.25rem; font-size: 0.85rem; font-weight: 500; }
 .pricing__grid--three { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 900px) {
