@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Audit Report — Snap Flow Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── VARIABLES ── */
+    :root {
+      --navy:      #0a0e27;
+      --navy-mid:  #0f1535;
+      --navy-card: #141a3a;
+      --navy-line: #1e2650;
+      --cyan:      #00D4FF;
+      --cyan-dim:  rgba(0,212,255,0.15);
+      --cyan-glow: rgba(0,212,255,0.08);
+      --white:     #ffffff;
+      --muted:     #8892b0;
+      --strong:    #22c55e;
+      --strong-bg: rgba(34,197,94,0.12);
+      --weak:      #f59e0b;
+      --weak-bg:   rgba(245,158,11,0.12);
+      --missing:   #ef4444;
+      --missing-bg:rgba(239,68,68,0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--navy-mid);
+      border-bottom: 2px solid var(--cyan);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .header__brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .header__logo-mark {
+      width: 44px;
+      height: 44px;
+      background: var(--cyan);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header__logo-mark svg { width: 24px; height: 24px; }
+
+    .header__brand-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cyan);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .header__brand-sub {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-top: 1px;
+    }
+
+    .header__meta {
+      text-align: right;
+    }
+
+    .header__meta-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .header__meta-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--cyan);
+    }
+
+    /* ── HERO BAND ── */
+    .hero-band {
+      background: linear-gradient(135deg, #0f1535 0%, #0a1628 100%);
+      border-left: 4px solid var(--cyan);
+      padding: 40px 48px;
+      margin-bottom: 32px;
+    }
+
+    .hero-band__label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .hero-band__business {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .hero-band__location {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .hero-band__summary {
+      font-size: 16px;
+      color: #c8d0e0;
+      line-height: 1.7;
+      max-width: 620px;
+      border-top: 1px solid var(--navy-line);
+      padding-top: 20px;
+      margin-top: 4px;
+    }
+
+    /* ── SCORE STRIP ── */
+    .score-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 32px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--navy-line);
+    }
+
+    .score-strip__item {
+      background: var(--navy-card);
+      padding: 20px 24px;
+      text-align: center;
+    }
+
+    .score-strip__number {
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .score-strip__number--strong { color: var(--strong); }
+    .score-strip__number--weak   { color: var(--weak); }
+    .score-strip__number--miss   { color: var(--missing); }
+
+    .score-strip__label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── SECTION TITLES ── */
+    .section-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--navy-line);
+    }
+
+    .section-block {
+      margin-bottom: 36px;
+    }
+
+    /* ── SCORECARD TABLE ── */
+    .scorecard {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .scorecard thead tr {
+      background: var(--navy-line);
+    }
+
+    .scorecard thead th {
+      padding: 12px 20px;
+      text-align: left;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .scorecard thead th:last-child { text-align: center; }
+
+    .scorecard tbody tr {
+      background: var(--navy-card);
+      border-bottom: 1px solid var(--navy-line);
+      transition: background 0.15s;
+    }
+
+    .scorecard tbody tr:last-child { border-bottom: none; }
+
+    .scorecard tbody td {
+      padding: 14px 20px;
+      font-size: 14px;
+      vertical-align: middle;
+    }
+
+    .scorecard tbody td:first-child {
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .scorecard tbody td:nth-child(2) {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .scorecard tbody td:last-child {
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .badge--strong { background: var(--strong-bg); color: var(--strong); }
+    .badge--weak   { background: var(--weak-bg);   color: var(--weak);   }
+    .badge--miss   { background: var(--missing-bg); color: var(--missing); }
+
+    .badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ── GAP CARDS ── */
+    .gap-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .gap-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-line);
+      border-left: 3px solid var(--missing);
+      border-radius: 0 10px 10px 0;
+      padding: 18px 22px;
+    }
+
+    .gap-card--weak {
+      border-left-color: var(--weak);
+    }
+
+    .gap-card__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .gap-card__title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .gap-card__priority {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--missing);
+      background: var(--missing-bg);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .gap-card--weak .gap-card__priority {
+      color: var(--weak);
+      background: var(--weak-bg);
+    }
+
+    .gap-card__body {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── RECOMMENDATION BOX ── */
+    .rec-box {
+      background: var(--cyan-glow);
+      border: 1px solid var(--cyan-dim);
+      border-top: 3px solid var(--cyan);
+      border-radius: 0 0 12px 12px;
+      padding: 32px 36px;
+      margin-bottom: 36px;
+    }
+
+    .rec-box__package {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .rec-box__name {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .rec-box__price {
+      font-size: 1.1rem;
+      color: var(--cyan);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .rec-box__why {
+      font-size: 14px;
+      color: #c8d0e0;
+      line-height: 1.7;
+      border-top: 1px solid var(--navy-line);
+      padding-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    .rec-box__includes {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .rec-box__include {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .rec-box__include::before {
+      content: '✓';
+      color: var(--cyan);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── COST OF INACTION ── */
+    .inaction-box {
+      background: rgba(239,68,68,0.06);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .inaction-box__icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .inaction-box__text h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--missing);
+      margin-bottom: 4px;
+    }
+
+    .inaction-box__text p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .inaction-box__amount {
+      margin-left: auto;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .inaction-box__amount-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--missing);
+      line-height: 1;
+    }
+
+    .inaction-box__amount-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ── OPENER BOX ── */
+    .opener-box {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-line);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 36px;
+    }
+
+    .opener-box__label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .opener-box__quote {
+      font-size: 15px;
+      color: var(--white);
+      line-height: 1.75;
+      font-style: italic;
+      border-left: 3px solid var(--cyan);
+      padding-left: 18px;
+      margin-bottom: 16px;
+    }
+
+    .opener-box__next {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .opener-box__next strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    /* ── CTA ── */
+    .cta-band {
+      background: var(--navy-mid);
+      border: 1px solid var(--cyan-dim);
+      border-radius: 12px;
+      padding: 32px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .cta-band__text h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .cta-band__text p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .cta-band__actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-cyan {
+      display: inline-block;
+      background: var(--cyan);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--cyan);
+      border: 1px solid var(--cyan);
+      font-weight: 600;
+      font-size: 13px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--navy-line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer__brand {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer__brand strong {
+      color: var(--cyan);
+    }
+
+    .footer__contact {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .footer__contact a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff; color: #000; }
+      .header, .hero-band, .rec-box, .gap-card,
+      .score-strip__item, .opener-box, .cta-band {
+        border: 1px solid #ddd !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header { padding: 24px; flex-direction: column; text-align: center; }
+      .header__meta { text-align: center; }
+      .hero-band { padding: 28px 24px; }
+      .score-strip { grid-template-columns: repeat(3,1fr); }
+      .inaction-box { flex-direction: column; text-align: center; }
+      .inaction-box__amount { margin-left: 0; text-align: center; }
+      .cta-band { flex-direction: column; text-align: center; }
+      .cta-band__actions { justify-content: center; }
+      .footer { flex-direction: column; text-align: center; }
+      .footer__contact { text-align: center; }
+      .scorecard tbody td:nth-child(2) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <div class="header">
+    <div class="header__brand">
+      <div class="header__logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0a0e27" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+      </div>
+      <div>
+        <div class="header__brand-name">Snap Flow Solutions</div>
+        <div class="header__brand-sub">AI-Powered Local Marketing</div>
+      </div>
+    </div>
+    <div class="header__meta">
+      <div class="header__meta-label">Audit Date</div>
+      <div class="header__meta-value"><!-- DATE e.g. March 31, 2026 --></div>
+      <div class="header__meta-label" style="margin-top:8px;">Prepared For</div>
+      <div class="header__meta-value"><!-- OWNER NAME --></div>
+    </div>
+  </div>
+
+  <div class="page">
+
+    <!-- ═══ HERO ═══ -->
+    <div class="hero-band">
+      <div class="hero-band__label">Free Business Audit Report</div>
+      <div class="hero-band__business"><!-- BUSINESS NAME --></div>
+      <div class="hero-band__location"><!-- CITY, STATE · INDUSTRY --></div>
+      <div class="hero-band__summary">
+        <!-- ONE PARAGRAPH EXECUTIVE SUMMARY. Example: -->
+        <!-- Ridge Line Plumbing has solid Google visibility but is losing leads every day due to unanswered after-hours calls, no automated follow-up, and a social presence that went quiet 4 months ago. The biggest single issue costing them money right now is missed calls with no callback system — estimates suggest 3–5 lost jobs per week. -->
+      </div>
+    </div>
+
+    <!-- ═══ SCORE STRIP ═══ -->
+    <div class="score-strip">
+      <div class="score-strip__item">
+        <div class="score-strip__number score-strip__number--strong"><!-- # --></div>
+        <div class="score-strip__label">Strong</div>
+      </div>
+      <div class="score-strip__item">
+        <div class="score-strip__number score-strip__number--weak"><!-- # --></div>
+        <div class="score-strip__label">Needs Work</div>
+      </div>
+      <div class="score-strip__item">
+        <div class="score-strip__number score-strip__number--miss"><!-- # --></div>
+        <div class="score-strip__label">Missing</div>
+      </div>
+    </div>
+
+    <!-- ═══ SCORECARD ═══ -->
+    <div class="section-block">
+      <div class="section-title">Full Scorecard — 9 Areas Audited</div>
+      <table class="scorecard">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>What We Found</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Website</td>
+            <td><!-- e.g. Mobile-friendly, clear CTA, contact form present --></td>
+            <td><span class="badge badge--strong">Strong</span></td>
+          </tr>
+          <tr>
+            <td>Google Presence</td>
+            <td><!-- e.g. Ranking #4 on map pack, 23 reviews, last review 4 months ago --></td>
+            <td><span class="badge badge--weak">Weak</span></td>
+          </tr>
+          <tr>
+            <td>Phone &amp; Communication</td>
+            <td><!-- e.g. Calls go to voicemail after hours, no callback system --></td>
+            <td><span class="badge badge--miss">Missing</span></td>
+          </tr>
+          <tr>
+            <td>Lead Follow-Up Speed</td>
+            <td><!-- e.g. No automated follow-up, manual callbacks only --></td>
+            <td><span class="badge badge--miss">Missing</span></td>
+          </tr>
+          <tr>
+            <td>Social Media</td>
+            <td><!-- e.g. Facebook page exists, last post 3 months ago --></td>
+            <td><span class="badge badge--weak">Weak</span></td>
+          </tr>
+          <tr>
+            <td>Reviews &amp; Reputation</td>
+            <td><!-- e.g. 4.8 stars, 23 reviews, not responding to reviews --></td>
+            <td><span class="badge badge--weak">Weak</span></td>
+          </tr>
+          <tr>
+            <td>Repeat Business</td>
+            <td><!-- e.g. No reactivation campaigns, no email list --></td>
+            <td><span class="badge badge--miss">Missing</span></td>
+          </tr>
+          <tr>
+            <td>CRM &amp; Pipeline</td>
+            <td><!-- e.g. No CRM, tracking in phone contacts only --></td>
+            <td><span class="badge badge--miss">Missing</span></td>
+          </tr>
+          <tr>
+            <td>AI Search Visibility</td>
+            <td><!-- e.g. Not showing up in ChatGPT or Google AI results --></td>
+            <td><span class="badge badge--miss">Missing</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ═══ GAPS ═══ -->
+    <div class="section-block">
+      <div class="section-title">What's Costing You Money Right Now</div>
+      <div class="gap-grid">
+
+        <!-- MISSING ITEMS — use gap-card (red border) -->
+        <div class="gap-card">
+          <div class="gap-card__header">
+            <div class="gap-card__title">No After-Hours Call Coverage</div>
+            <div class="gap-card__priority">High Priority</div>
+          </div>
+          <div class="gap-card__body">
+            <!-- e.g. Calls after 5pm go straight to voicemail with no text callback. In a market where the first business to respond wins, this is the single biggest revenue leak. Estimated 3–5 lost jobs per week. -->
+          </div>
+        </div>
+
+        <div class="gap-card">
+          <div class="gap-card__header">
+            <div class="gap-card__title">Zero Automated Follow-Up</div>
+            <div class="gap-card__priority">High Priority</div>
+          </div>
+          <div class="gap-card__body">
+            <!-- e.g. Leads that don't book immediately have no follow-up sequence. No texts, no reminders, no second touch. These leads go cold and book with whoever reaches back out first. -->
+          </div>
+        </div>
+
+        <div class="gap-card">
+          <div class="gap-card__header">
+            <div class="gap-card__title">Past Customers Never Contacted</div>
+            <div class="gap-card__priority">High Priority</div>
+          </div>
+          <div class="gap-card__body">
+            <!-- e.g. No reactivation system in place. Every past customer is a potential repeat job or referral sitting untouched. This is the easiest revenue to recover. -->
+          </div>
+        </div>
+
+        <!-- WEAK ITEMS — use gap-card gap-card--weak (yellow border) -->
+        <div class="gap-card gap-card--weak">
+          <div class="gap-card__header">
+            <div class="gap-card__title">Google Reviews Slowing Down</div>
+            <div class="gap-card__priority" style="color:var(--weak);background:var(--weak-bg);">Medium Priority</div>
+          </div>
+          <div class="gap-card__body">
+            <!-- e.g. 23 reviews at 4.8 stars is solid but the last review was 4 months ago. Google's algorithm favors recency. Automated review requests after every job would accelerate this significantly. -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ COST OF INACTION ═══ -->
+    <div class="inaction-box">
+      <div class="inaction-box__icon">⚠️</div>
+      <div class="inaction-box__text">
+        <h3>Estimated Monthly Revenue Loss</h3>
+        <p>Based on missed calls, cold leads, and zero reactivation — this is what the current gaps are costing every month.</p>
+      </div>
+      <div class="inaction-box__amount">
+        <div class="inaction-box__amount-number">$<!-- AMOUNT e.g. 4,200 -->+</div>
+        <div class="inaction-box__amount-label">per month in missed revenue</div>
+      </div>
+    </div>
+
+    <!-- ═══ RECOMMENDATION ═══ -->
+    <div class="section-block">
+      <div class="section-title">Our Recommendation</div>
+      <div class="rec-box">
+        <div class="rec-box__package">Recommended Package</div>
+        <div class="rec-box__name"><!-- PACKAGE NAME e.g. Growth --></div>
+        <div class="rec-box__price"><!-- e.g. $497/mo · $999 one-time setup --></div>
+        <div class="rec-box__why">
+          <!-- WHY THIS PACKAGE. e.g. With 4 Missing categories, the priority is closing the foundation gaps first — AI call coverage, automated follow-up, review generation, and reactivation. The Growth plan addresses all of these and adds your Google presence to the mix. -->
+        </div>
+        <div class="rec-box__includes">
+          <div class="rec-box__include">AI answers every missed call 24/7 — no lead slips through</div>
+          <div class="rec-box__include">Automated follow-up sequences until they book</div>
+          <div class="rec-box__include">Review generation after every job</div>
+          <div class="rec-box__include">Google Business Profile optimization + management</div>
+          <div class="rec-box__include">Reactivation campaigns to past customers</div>
+          <div class="rec-box__include">All messages in one inbox — phone, text, email, social</div>
+          <!-- Add or remove items to match the actual package -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ CONVERSATION OPENER ═══ -->
+    <div class="section-block">
+      <div class="section-title">Your Conversation Opener</div>
+      <div class="opener-box">
+        <div class="opener-box__label">Use This When You Reach Out</div>
+        <div class="opener-box__quote">
+          <!-- OPENER. e.g. "I ran Ridge Line Plumbing through our audit system. Your calls go to voicemail after hours, your last Google review was 4 months ago, and there's no follow-up system for leads that don't book immediately. I can fix all three in 72 hours — worth a quick call?" -->
+        </div>
+        <div class="opener-box__next">
+          <strong>Next Step:</strong>
+          <!-- e.g. Demo call — show them the AI answering their own phone number live. -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ CTA ═══ -->
+    <div class="cta-band">
+      <div class="cta-band__text">
+        <h3>Ready to fix this?</h3>
+        <p>No long-term contracts. We build it, we run it, you close deals.</p>
+      </div>
+      <div class="cta-band__actions">
+        <a href="https://snapflowsolutions.com/#form" class="btn-cyan">Book a Free Demo Call</a>
+        <a href="tel:+15864002943" class="btn-outline">Call Us Now</a>
+      </div>
+    </div>
+
+    <!-- ═══ FOOTER ═══ -->
+    <div class="footer">
+      <div class="footer__brand">
+        Prepared by <strong>Snap Flow Solutions</strong> · snapflowsolutions.com
+      </div>
+      <div class="footer__contact">
+        <a href="mailto:hello@snapflowsolutions.com">hello@snapflowsolutions.com</a><br>
+        <a href="tel:+15864002943">+1 (586) 400-2943</a>
+      </div>
+    </div>
+
+  </div><!-- /page -->
+
+</body>
+</html>
