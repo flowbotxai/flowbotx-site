@@ -68,6 +68,13 @@
       border-radius: 16px;
       border: 2px solid rgba(0, 212, 255, 0.2);
     }
+    .about__headshot {
+      max-width: 280px;
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    }
     .founder__bio h3 {
       font-size: 1.5rem;
       font-weight: 700;
@@ -122,6 +129,7 @@
     "url": "https://snapflowsolutions.com"
   },
   "knowsAbout": ["AI Marketing", "Local SEO", "Lead Capture", "Google Business Profile Optimization", "Marketing Automation"],
+  "image": "https://snapflowsolutions.com/assets/chris-pearce-headshot.jpg",
   "description": "Founder of Snap Flow Solutions. Ran Incidents Paintless Dent Removal for 28 years in Michigan, ranked first on Google across his entire service area. Now based in Ringgold, GA, helping Chattanooga area businesses grow with AI-powered marketing."
 }
   </script>
@@ -230,7 +238,11 @@
       </div>
       <div class="founder__grid">
         <div class="founder__photo">
-          <img src="../assets/chris-pearce-headshot.jpg" alt="Chris Pearce, Founder of Snap Flow Solutions">
+          <img src="../assets/chris-pearce-headshot.jpg"
+               alt="Chris Pearce, Founder of Snap Flow Solutions — AI Marketing Agency Ringgold GA"
+               class="about__headshot"
+               width="280"
+               loading="eager">
         </div>
         <div class="founder__bio">
           <h3>Chris Pearce &mdash; Founder &amp; CEO</h3>
