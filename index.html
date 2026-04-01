@@ -40,6 +40,16 @@
     .solution__card {
       border: 1px solid rgba(0, 212, 255, 0.2);
     }
+    .solution__grid--2x2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 640px) {
+      .solution__grid--2x2 {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
   <script type="application/ld+json">
 {
@@ -137,7 +147,7 @@
       <a href="#" class="nav__logo"><img src="assets/snapflow-logo-transparent.png" alt="Snap Flow Solutions" style="height:100px;width:auto;"></a>
       <div class="nav__links">
         <a href="#how-it-works">How It Works</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#services">Services</a>
         <a href="/about/">About</a>
         <a href="#faq">FAQ</a>
         <a href="/blog/">Blog</a>
@@ -152,7 +162,7 @@
     </div>
     <div class="nav__mobile" id="mobileNav">
       <a href="#how-it-works">How It Works</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#services">Services</a>
       <a href="/about/">About</a>
       <a href="#faq">FAQ</a>
       <a href="/blog/">Blog</a>
@@ -387,95 +397,38 @@
     </div>
   </section>
 
-  <section class="section" id="pricing">
+  <section id="services" class="section">
     <div class="container">
       <div class="section__header">
-        <span class="section__label">Simple, Transparent Pricing</span>
-        <h2 class="section__title">Pick Your Plan. We Handle the Rest.</h2>
-        <p class="section__sub">Every plan is done for you &mdash; we build it, we run it, you get the results. Everything is included. No add-ons. No surprises.</p>
+        <span class="section__label">What We Do</span>
+        <h2 class="section__title">How We Help Your Business Grow</h2>
+        <p class="section__sub">AI-powered marketing solutions tailored to your business</p>
       </div>
-      <div class="pricing__grid pricing__grid--three">
-
-        <div class="pricing__card">
-          <span class="pricing__badge">Best Entry Point</span>
-          <h3 class="pricing__name">Never Miss a Lead</h3>
-          <div class="pricing__price">$129<span>/mo</span></div>
-          <div class="pricing__setup">FREE setup</div>
-          <p class="pricing__desc">Your phone never goes unanswered again. AI picks up missed calls, texts back automatically, and makes sure no lead slips through while you&rsquo;re busy.</p>
-          <ul class="pricing__features">
-            <li>AI answers every missed call 24/7</li>
-            <li>Auto-text when you miss a call</li>
-            <li>Two-way texting with customers</li>
-            <li>Instant notification on every new lead</li>
-            <li>Every call recorded and transcribed</li>
-            <li>Mobile app &mdash; always in the loop</li>
-            <li>Basic monthly report</li>
-          </ul>
-          <a href="#form" class="btn btn--ghost" style="display:block;text-align:center;">Get Started &mdash; $129/mo</a>
+      <div class="solution__grid solution__grid--2x2">
+        <div class="solution__card">
+          <div class="solution__icon" style="font-size:2rem;line-height:1;">&#x1F4CD;</div>
+          <h3>Google Business Profile Management</h3>
+          <p>Get found locally. We optimize and manage your Google presence so customers find you first.</p>
         </div>
-
-        <div class="pricing__card pricing__card--featured">
-          <span class="pricing__badge">Most Popular</span>
-          <h3 class="pricing__name">Growth</h3>
-          <div class="pricing__price">$497<span>/mo</span></div>
-          <div class="pricing__setup">$999 setup</div>
-          <p class="pricing__desc">Every lead captured, followed up, and your local presence built automatically. Your whole pipeline on autopilot &mdash; reputation, reviews, and Google visibility included.</p>
-          <ul class="pricing__features">
-            <li>Everything in Never Miss a Lead</li>
-            <li>All messages in one inbox</li>
-            <li>Lead tracker + CRM</li>
-            <li>Auto follow-up sequences</li>
-            <li>Online booking synced to calendar</li>
-            <li>Invoice + payment collection</li>
-            <li>Review generation after every job</li>
-            <li>Review response management</li>
-            <li>Reactivation campaigns</li>
-            <li>GBP optimization + monthly management</li>
-            <li>Citation building + NAP consistency</li>
-            <li>Map Pack / Local 3-Pack ranking</li>
-            <li>4 social media posts/mo</li>
-            <li>Standard monthly report</li>
-          </ul>
-          <a href="#form" class="btn btn--primary" style="display:block;text-align:center;">Get Started &mdash; $497/mo</a>
+        <div class="solution__card">
+          <div class="solution__icon" style="font-size:2rem;line-height:1;">&#x1F4DE;</div>
+          <h3>AI Voice &amp; Text Assistant</h3>
+          <p>Never miss a call. AI answers 24/7 so you never lose a lead.</p>
         </div>
-
-        <div class="pricing__card">
-          <h3 class="pricing__name">Full Presence</h3>
-          <div class="pricing__price">$897<span>/mo</span></div>
-          <div class="pricing__setup">$1,499 setup</div>
-          <p class="pricing__desc">We run everything. Unlimited AI coverage, Google Ads, location pages, social content, email newsletter, and a dedicated account manager. You just close deals.</p>
-          <ul class="pricing__features">
-            <li>Everything in Growth</li>
-            <li>Unlimited AI call coverage</li>
-            <li>Google Ads setup + management</li>
-            <li>Up to 3 location pages included</li>
-            <li>8 social media posts/mo</li>
-            <li>Monthly email newsletter</li>
-            <li>Monthly content calendar</li>
-            <li>Full analytics dashboard</li>
-            <li>Dedicated account manager</li>
-            <li>24/7 priority support</li>
-          </ul>
-          <a href="#form" class="btn btn--ghost" style="display:block;text-align:center;">Get Started &mdash; $897/mo</a>
+        <div class="solution__card">
+          <div class="solution__icon" style="font-size:2rem;line-height:1;">&#x1F4F1;</div>
+          <h3>Content &amp; Social Media</h3>
+          <p>Stay visible. Professional content across all your platforms, every week.</p>
         </div>
-
-      </div>
-      <div class="financing-banner">
-        <div class="financing-banner__inner">
-          <div class="financing-banner__icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          </div>
-          <div class="financing-banner__content">
-            <h3 class="financing-banner__title">Flexible Payment Options at Checkout</h3>
-            <p class="financing-banner__body">Pay your setup fee in full or split it into easy payments &mdash; Klarna and PayPal Pay Later available at checkout. Monthly plans billed automatically. No surprises.</p>
-            <div class="financing-banner__logos" style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:0.75rem;">
-              <span class="financing-badge">Klarna available</span>
-              <span class="financing-badge">PayPal Pay Later</span>
-            </div>
-          </div>
+        <div class="solution__card">
+          <div class="solution__icon" style="font-size:2rem;line-height:1;">&#x2B50;</div>
+          <h3>Reputation Management</h3>
+          <p>Build trust. We monitor and respond to reviews so your reputation works for you.</p>
         </div>
       </div>
-      <p style="text-align:center;color:#888;font-size:0.9rem;margin-top:1rem;margin-bottom:0;">Annual plans available for all tiers. Setup fee can be split over 3 months. Ask us during your free checkup call.</p>
+      <div style="text-align:center;margin-top:3rem;">
+        <a href="#form" class="btn btn--primary">Book a Free Strategy Call</a>
+      </div>
     </div>
   </section>
 
@@ -580,7 +533,7 @@
         </div>
         <div class="faq__item">
           <button class="faq__question">Can I start small and upgrade later?<span class="faq__toggle">+</span></button>
-          <div class="faq__answer"><div class="faq__answer-inner">Absolutely. Most clients start with Never Miss a Lead at $129/mo and upgrade once they see the results. No pressure, no long-term contracts.</div></div>
+          <div class="faq__answer"><div class="faq__answer-inner">Absolutely. We build a custom plan around your business and budget. Most clients start with the basics and add services as they see results. No pressure, no long-term contracts.</div></div>
         </div>
         <div class="faq__item">
           <button class="faq__question">What&rsquo;s included in the Free Business Checkup?<span class="faq__toggle">+</span></button>
@@ -588,7 +541,7 @@
         </div>
         <div class="faq__item">
           <button class="faq__question">Do you offer Google Ads management?<span class="faq__toggle">+</span></button>
-          <div class="faq__answer"><div class="faq__answer-inner">Yes &mdash; Google Ads setup and management is included in our Full Presence plan at $897/mo. We handle the campaign setup, ongoing management, and monthly reporting. You control the ad budget directly with Google.</div></div>
+          <div class="faq__answer"><div class="faq__answer-inner">Yes &mdash; we offer Google Ads setup and management as part of our full-service packages. We handle the campaign setup, ongoing management, and monthly reporting. You control the ad budget directly with Google. Ask about details during your free strategy call.</div></div>
         </div>
         <div class="faq__item">
           <button class="faq__question">What is AI search and why does it matter?<span class="faq__toggle">+</span></button>
@@ -669,7 +622,7 @@
         </div>
         <div class="footer__links">
           <a href="#how-it-works">How It Works</a>
-          <a href="#pricing">Pricing</a>
+          <a href="#services">Services</a>
           <a href="#faq">FAQ</a>
           <a href="#form">Free Checkup</a>
           <a href="/chattanooga/">Chattanooga</a>
