@@ -1305,3 +1305,13 @@ section li,
 /* Source line */
 .source-line { text-align: center; font-size: 16px; color: #94a3b8; margin-top: 0.75rem; font-style: italic; }
 .section--white .source-line { color: #94a3b8; }
+
+/* Audit card (lead magnet section) */
+.audit-section { background: #0a0e27; }
+.audit-card { background: rgba(255,255,255,0.03); border: 2px solid #06b6d4; border-radius: 16px; padding: 3rem 2rem; max-width: 800px; margin: 0 auto; }
+.audit-card .section__header { margin-bottom: 1.5rem; }
+.audit-card__list { list-style: none; padding: 0; margin: 0 auto 1.5rem; max-width: 600px; }
+.audit-card__list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; color: #b8c0d0; font-size: 18px; line-height: 1.6; }
+.audit-card__list li::before { content: '\2713'; position: absolute; left: 0; color: #22d3ee; font-weight: 700; }
+.audit-card__disclaimer { text-align: center; color: #94a3b8; font-size: 16px; margin-top: 1.5rem; }
+@media (max-width: 768px) { .audit-card { padding: 2rem 1.25rem; } }
