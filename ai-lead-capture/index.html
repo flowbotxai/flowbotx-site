@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YQFQY5E471"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YQFQY5E471');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Lead Capture & Follow-Up for Small Business | Snap Flow Solutions</title>
+  <meta name="description" content="AI-powered lead capture and follow-up for small businesses. Every call answered, every lead followed up, 24/7. Snap Flow Solutions builds and runs your AI lead system in Chattanooga and beyond.">
+  <link rel="canonical" href="https://snapflowsolutions.com/ai-lead-capture/">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://snapflowsolutions.com/ai-lead-capture/" />
+  <meta property="og:title" content="AI Lead Capture & Follow-Up for Small Business | Snap Flow Solutions" />
+  <meta property="og:description" content="AI-powered lead capture and follow-up for small businesses. Every call answered, every lead followed up, 24/7. Snap Flow Solutions builds and runs your AI lead system in Chattanooga and beyond." />
+  <meta property="og:image" content="https://snapflowsolutions.com/assets/snapflow-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Snap Flow Solutions" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Lead Capture & Follow-Up for Small Business | Snap Flow Solutions" />
+  <meta name="twitter:description" content="AI-powered lead capture and follow-up for small businesses. Every call answered, every lead followed up, 24/7. Snap Flow Solutions builds and runs your AI lead system in Chattanooga and beyond." />
+  <meta name="twitter:image" content="https://snapflowsolutions.com/assets/snapflow-og.png" />
+  <meta name="geo.region" content="US-GA" />
+  <meta name="geo.placename" content="Ringgold" />
+  <meta name="geo.position" content="34.9137;-85.1091" />
+  <meta name="ICBM" content="34.9137, -85.1091" />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Conversation card */
+    .convo-card { background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .convo-card__header { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.25rem; border-bottom: 1px solid #e2e8f0; }
+    .convo-card__avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #06b6d4, #3b82f6); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .convo-card__avatar svg { width: 20px; height: 20px; fill: #ffffff; }
+    .convo-card__name { font-weight: 600; color: #0f172a; font-size: 0.95rem; }
+    .convo-card__status { font-size: 0.8rem; color: #22c55e; display: flex; align-items: center; gap: 0.35rem; }
+    .convo-card__status::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block; }
+    .convo-card__body { padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
+    .msg { max-width: 82%; padding: 0.75rem 1rem; border-radius: 12px; font-size: 0.92rem; line-height: 1.5; }
+    .msg--customer { align-self: flex-end; background: #f1f5f9; color: #1e293b; border-bottom-right-radius: 4px; }
+    .msg--ai { align-self: flex-start; background: #f0fdfa; color: #1e293b; border: 1px solid #99f6e4; border-bottom-left-radius: 4px; }
+    .msg__time { font-size: 0.75rem; color: #94a3b8; margin-top: 0.35rem; }
+    .convo-card__result { margin: 0 1.25rem 1.25rem; padding: 0.75rem 1rem; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; color: #166534; font-weight: 600; font-size: 0.9rem; text-align: center; }
+
+    /* Results panel cards */
+    .results-panel { display: flex; flex-direction: column; gap: 1.25rem; }
+    .results-card { border-radius: 12px; padding: 1.5rem; }
+    .results-card--steps { background: #f8f9fa; border: 1px solid #e2e8f0; }
+    .results-card--without { background: #fef2f2; border: 1px solid #fecaca; }
+    .results-card--math { background: #0a0e27; color: #ffffff; }
+    .results-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
+    .results-card--steps h4 { color: #0f172a; }
+    .results-card--without h4 { color: #991b1b; }
+    .results-card--math h4 { color: #22d3ee; }
+    .results-card--steps ol { list-style: none; padding: 0; margin: 0; counter-reset: step-counter; }
+    .results-card--steps li { counter-increment: step-counter; display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.9rem; color: #334155; line-height: 1.5; }
+    .results-card--steps li::before { content: counter(step-counter); width: 24px; height: 24px; border-radius: 50%; background: #22c55e; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .results-card--without p { color: #991b1b; font-size: 0.92rem; line-height: 1.6; margin: 0; }
+    .math-line { display: flex; justify-content: space-between; padding: 0.5rem 0; font-size: 0.92rem; color: #b8c0d0; }
+    .math-line--total { border-top: 2px solid #22d3ee; margin-top: 0.5rem; padding-top: 0.75rem; color: #22d3ee; font-weight: 700; font-size: 1rem; }
+
+    /* Two-column layout for "See it in action" */
+    .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; max-width: 1100px; margin: 0 auto; }
+    @media (max-width: 768px) { .action-grid { grid-template-columns: 1fr; } }
+
+    /* Comparison table */
+    .compare-table { width: 100%; border-collapse: collapse; margin: 2rem auto 1rem; max-width: 900px; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+    .compare-table th { background: #0f172a; color: #ffffff; padding: 1rem; font-size: 0.9rem; font-weight: 600; text-align: left; }
+    .compare-table td { padding: 0.85rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; font-size: 0.92rem; }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:hover td { background: #f8fafc; }
+    .badge-impact { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
+    .badge-impact--high { background: #fef9c3; color: #854d0e; }
+    .badge-impact--very-high { background: #fee2e2; color: #991b1b; }
+
+    /* Quote section */
+    .quote-section { text-align: center; max-width: 520px; margin: 0 auto; }
+    .quote-section__icon { width: 48px; height: 48px; margin: 0 auto 1.25rem; background: linear-gradient(135deg, #06b6d4, #3b82f6); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+    .quote-section__icon svg { width: 24px; height: 24px; fill: #ffffff; }
+    .quote-section__buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 1.5rem 0 1rem; }
+    .quote-section__text-us { color: #06b6d4; font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .quote-section__text-us a { color: #06b6d4; text-decoration: none; font-weight: 600; }
+    .quote-section__trust { color: #94a3b8; font-size: 0.88rem; }
+
+    /* Deal banner */
+    .deal-banner { background: #0a0e27; border-top: 3px solid #06b6d4; border-bottom: 3px solid #06b6d4; padding: 3.5rem 1rem; text-align: center; }
+
+    /* Feature check cards (dark bg) */
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+    .feature-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; }
+    .feature-card__icon { width: 32px; height: 32px; color: #22d3ee; margin-bottom: 0.75rem; }
+    .feature-card h3 { color: #ffffff; font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .feature-card p { color: #b8c0d0; font-size: 0.92rem; line-height: 1.6; margin: 0; }
+    @media (max-width: 768px) { .feature-grid { grid-template-columns: 1fr; } }
+    @media (min-width: 769px) and (max-width: 1024px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* White section button overrides */
+    .section--white .btn--primary { background: linear-gradient(135deg, #06b6d4, #3b82f6); color: #ffffff; }
+    .section--white .btn--outline { border-color: #06b6d4; color: #06b6d4; }
+    .section--white .btn--outline:hover { background: #06b6d4; color: #ffffff; }
+
+    /* Source line */
+    .source-line { text-align: center; font-size: 0.8rem; color: #94a3b8; margin-top: 0.75rem; font-style: italic; }
+    .section--white .source-line { color: #94a3b8; }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://snapflowsolutions.com/ai-lead-capture/#service",
+      "dateModified": "2026-04-12",
+      "name": "AI Lead Capture & Follow-Up",
+      "description": "AI-powered lead capture and follow-up for small businesses. Every call answered, every lead followed up, 24/7. Snap Flow Solutions builds and runs your AI lead system in Chattanooga and beyond.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Snap Flow Solutions",
+        "url": "https://snapflowsolutions.com",
+        "@id": "https://snapflowsolutions.com/#business"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Chattanooga", "addressRegion": "TN" },
+        { "@type": "City", "name": "Ringgold", "addressRegion": "GA" },
+        { "@type": "City", "name": "Dalton", "addressRegion": "GA" },
+        { "@type": "City", "name": "East Ridge", "addressRegion": "TN" },
+        { "@type": "City", "name": "Fort Oglethorpe", "addressRegion": "GA" }
+      ],
+      "url": "https://snapflowsolutions.com/ai-lead-capture/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://snapflowsolutions.com" },
+        { "@type": "ListItem", "position": 2, "name": "AI Lead Capture", "item": "https://snapflowsolutions.com/ai-lead-capture/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does AI lead capture cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on your business size and what you need. Our AI assistant can give you a custom quote in about 2 minutes — just click 'Get a Quote' above."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a contract?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No long-term contracts. Month to month. Cancel anytime."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I keep my existing phone number?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We set up a dedicated AI number. Your existing number stays the same."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when a lead needs a real person?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You get notified instantly. Every call and text is recorded so you can see what was said. You're always in the loop."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast can this be set up?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most businesses are live within 48 hours of signing up."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo"><img src="../assets/snapflow-logo-transparent.png" alt="Snap Flow Solutions" style="height:100px;width:auto;"></a>
+      <div class="nav__links">
+        <a href="/#how-it-works">How It Works</a>
+        <div class="nav__dropdown">
+          <button class="nav__dropdown-trigger">Services</button>
+          <div class="nav__dropdown-menu">
+            <a href="/ai-lead-capture/">AI Lead Capture</a>
+            <a href="/ai-consulting/">AI Consulting</a>
+            <a href="/#services">All Services</a>
+          </div>
+        </div>
+        <a href="/about/">About</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/blog/">Blog</a>
+      </div>
+      <div class="nav__actions">
+        <a href="tel:+14232089982" class="btn btn--outline btn--sm">Call Now</a>
+        <a href="/#form" class="btn btn--primary btn--sm">Free Business Checkup</a>
+      </div>
+      <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobileNav">
+      <a href="/#how-it-works">How It Works</a>
+      <div class="nav__mobile-dropdown">
+        <a href="/ai-lead-capture/">AI Lead Capture</a>
+        <a href="/ai-consulting/">AI Consulting</a>
+        <a href="/#services">All Services</a>
+      </div>
+      <a href="/about/">About</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/blog/">Blog</a>
+      <a href="tel:+14232089982" class="btn btn--outline">Call Now</a>
+      <a href="/#form" class="btn btn--primary">Free Business Checkup</a>
+    </div>
+  </nav>
+
+  <!-- SECTION 1 — HERO -->
+  <section class="hero" style="padding:2rem 0 3rem;">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:1.5rem;">
+        <a href="/" style="color:#94a3b8;">Home</a>
+        <span style="color:#475569;margin:0 0.5rem;">&rsaquo;</span>
+        <span style="color:#00D4FF;">AI Lead Capture</span>
+      </nav>
+      <span class="hero__eyebrow">AI-powered lead capture &amp; follow-up</span>
+      <h1 class="hero__title">Never miss another lead. Even at 2&thinsp;am.</h1>
+      <p class="hero__sub" style="max-width:640px;">AI answers your calls, texts back instantly, and follows up automatically until they book. You close the deals.</p>
+      <div class="hero__actions" style="margin-top:2rem;">
+        <a href="/#form" class="btn btn--primary">Get a quote &mdash; chat with our AI &rarr;</a>
+      </div>
+      <div class="hero__stats" style="margin-top:2.5rem;">
+        <div class="hero__stat">
+          <div class="hero__stat-number">60s</div>
+          <div class="hero__stat-label">Response time</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-number">24/7</div>
+          <div class="hero__stat-label">Always on</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-number">DFY</div>
+          <div class="hero__stat-label">We build and run it</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — CITABILITY BLOCK -->
+  <section class="citability-section" aria-label="About AI lead capture for small business">
+    <div class="container">
+      <p class="citability-block">AI lead capture for small business uses artificial intelligence to answer incoming calls, send instant text responses to missed calls, and run automated follow-up sequences via text and email. A fully implemented AI lead capture system responds to every inquiry within 60 seconds, operates 24 hours a day, and continues following up with leads until they book or decline. <a href="/about/" style="color:#22d3ee;">Snap Flow Solutions</a> provides done-for-you AI lead capture and follow-up for service businesses in the <a href="/chattanooga/" style="color:#22d3ee;">Chattanooga, Tennessee</a> metro area, with systems that typically begin capturing leads within 48 hours of setup.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — PROBLEM (white) -->
+  <section class="section section--white" style="padding:4rem 1rem;">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Sound familiar?</span>
+        <h2 class="section__title">You&rsquo;re losing leads right now</h2>
+      </div>
+      <div class="problem__grid">
+        <div class="problem__card">
+          <div class="problem__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><line x1="1" y1="1" x2="23" y2="23" style="stroke:#ef4444;stroke-width:2.5"/></svg>
+          </div>
+          <h3>Calls go unanswered while you work</h3>
+          <p>You&rsquo;re on a job, phone rings, nobody answers. They call the next business on Google. You never knew they called.</p>
+        </div>
+        <div class="problem__card">
+          <div class="problem__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Follow-up takes hours, not seconds</h3>
+          <p>You get back to them 3 hours later. They already booked someone else. The first business to respond wins the job.</p>
+        </div>
+        <div class="problem__card">
+          <div class="problem__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </div>
+          <h3>After-hours calls go to voicemail</h3>
+          <p>62% of people won&rsquo;t leave a voicemail. That lead is gone forever &mdash; and it was probably your most motivated customer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — WHAT'S INCLUDED (dark) -->
+  <section class="section" style="padding:4rem 1rem;">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">What you get</span>
+        <h2 class="section__title">Everything included in AI Lead Capture</h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <svg class="feature-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <h3>AI call answering 24/7</h3>
+          <p>Every call answered. Every lead captured. Nights, weekends, holidays.</p>
+        </div>
+        <div class="feature-card">
+          <svg class="feature-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <h3>Missed call text-back</h3>
+          <p>Missed a call? Your AI sends a text within 60 seconds. Keeps the lead warm.</p>
+        </div>
+        <div class="feature-card">
+          <svg class="feature-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          <h3>Automated follow-up sequences</h3>
+          <p>Text and email follow-ups run automatically until they book or say no.</p>
+        </div>
+        <div class="feature-card">
+          <svg class="feature-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          <h3>Lead dashboard</h3>
+          <p>See every lead, every conversation, every status in one place.</p>
+        </div>
+        <div class="feature-card">
+          <svg class="feature-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg>
+          <h3>Appointment booking</h3>
+          <p>AI books appointments directly into your calendar. No back-and-forth.</p>
+        </div>
+        <div class="feature-card">
+          <svg class="feature-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <h3>Monthly reporting</h3>
+          <p>How many leads came in, how many converted, what your ROI looks like.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — SEE IT IN ACTION (white) -->
+  <section class="section section--white" style="padding:4rem 1rem;">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">See it in action</span>
+        <h2 class="section__title">What happens when a lead reaches out at 10&thinsp;pm</h2>
+        <p class="section__sub">While you sleep, your AI captures the lead, qualifies them, gives a price, and books the appointment.</p>
+      </div>
+      <div class="action-grid">
+        <!-- Left: Conversation card -->
+        <div class="convo-card">
+          <div class="convo-card__header">
+            <div class="convo-card__avatar">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            </div>
+            <div>
+              <div class="convo-card__name">Snap Flow AI</div>
+              <div class="convo-card__status">Active now</div>
+            </div>
+          </div>
+          <div class="convo-card__body">
+            <div class="msg msg--customer">
+              I need an emergency plumber. Kitchen pipe burst.
+              <div class="msg__time">10:14 PM</div>
+            </div>
+            <div class="msg msg--ai">
+              We have a plumber available now. What&rsquo;s your address? We can have someone there in 30&nbsp;min.
+              <div class="msg__time">10:14 PM &middot; 8 sec later</div>
+            </div>
+            <div class="msg msg--customer">
+              1234 Oak St, Chattanooga. How much?
+              <div class="msg__time">10:15 PM</div>
+            </div>
+            <div class="msg msg--ai">
+              Emergency calls start at $150. Mike is booked for 10:45&nbsp;PM. You&rsquo;ll get a text when he&rsquo;s on the way.
+              <div class="msg__time">10:15 PM &middot; 12 sec later</div>
+            </div>
+          </div>
+          <div class="convo-card__result">Qualified. Priced. Booked. Under 60 seconds.</div>
+        </div>
+
+        <!-- Right: Results panel -->
+        <div class="results-panel">
+          <div class="results-card results-card--steps">
+            <h4>What just happened</h4>
+            <ol>
+              <li><strong>Lead captured</strong> &mdash; Name, address, and contact saved to CRM</li>
+              <li><strong>Price quoted</strong> &mdash; Customer knows the cost before you arrive</li>
+              <li><strong>Appointment booked</strong> &mdash; Tech dispatched, customer notified</li>
+              <li><strong>You got notified</strong> &mdash; Push notification with full conversation transcript</li>
+            </ol>
+          </div>
+          <div class="results-card results-card--without">
+            <h4>Without AI</h4>
+            <p>This customer called, got voicemail, hung up, and called the next plumber on Google. You woke up the next morning and never knew the lead existed.</p>
+          </div>
+          <div class="results-card results-card--math">
+            <h4>The math</h4>
+            <div class="math-line">
+              <span>Average job value</span>
+              <span>$350</span>
+            </div>
+            <div class="math-line">
+              <span>Missed after-hours calls/month</span>
+              <span>12&ndash;15</span>
+            </div>
+            <div class="math-line math-line--total">
+              <span>Revenue you&rsquo;re leaving on the table</span>
+              <span>$4,200&ndash;$5,250/mo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6 — HOW IT WORKS (light) -->
+  <section class="section section--light" style="padding:4rem 1rem;">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">How it works</span>
+        <h2 class="section__title">Three steps. Then it runs itself.</h2>
+      </div>
+      <div class="steps__grid">
+        <div class="step__card">
+          <div class="step__number">01</div>
+          <h3>We audit your business first</h3>
+          <p>We look at how leads come in today, what happens to them, and where the gaps are. This is free.</p>
+        </div>
+        <div class="step__card">
+          <div class="step__number">02</div>
+          <h3>We build and install everything</h3>
+          <p>We set up your AI, connect your systems, and get everything running. No tech skills needed.</p>
+        </div>
+        <div class="step__card">
+          <div class="step__number">03</div>
+          <h3>You close the deals</h3>
+          <p>You get notified when a lead is hot. Show up, do the work, get paid. Everything else runs on autopilot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7 — COMPARISON TABLE (white) -->
+  <section class="section section--white" style="padding:4rem 1rem;">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Numbers don&rsquo;t lie</span>
+        <h2 class="section__title">Manual vs AI-powered</h2>
+        <p class="section__sub">What changes when AI handles your leads.</p>
+      </div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Manual</th>
+            <th>With AI</th>
+            <th>Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Missed calls/month</td>
+            <td>62%</td>
+            <td>&lt;3%</td>
+            <td><span class="badge-impact badge-impact--very-high">Very High</span></td>
+          </tr>
+          <tr>
+            <td>Response time</td>
+            <td>~34 min</td>
+            <td>&lt;1 sec</td>
+            <td><span class="badge-impact badge-impact--very-high">Very High</span></td>
+          </tr>
+          <tr>
+            <td>Availability</td>
+            <td>8 hrs/day</td>
+            <td>24/7</td>
+            <td><span class="badge-impact badge-impact--high">High</span></td>
+          </tr>
+          <tr>
+            <td>Lead follow-up</td>
+            <td>Manual/forgotten</td>
+            <td>Automated</td>
+            <td><span class="badge-impact badge-impact--high">High</span></td>
+          </tr>
+          <tr>
+            <td>Lead conversion</td>
+            <td>23%</td>
+            <td>48%</td>
+            <td><span class="badge-impact badge-impact--very-high">Very High</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="source-line">Based on industry benchmarks for service businesses</p>
+    </div>
+  </section>
+
+  <!-- SECTION 8 — GET A QUOTE (white) -->
+  <section class="section section--white" style="padding:4rem 1rem;">
+    <div class="container">
+      <div class="quote-section">
+        <div class="quote-section__icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h2 style="color:#0f172a;font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:800;margin-bottom:0.75rem;">Get a quote in 2 minutes</h2>
+        <p style="color:#475569;font-size:1.05rem;line-height:1.7;">Our AI assistant knows our services, answers your questions, and gives you a custom price &mdash; right now. No call needed.</p>
+        <div class="quote-section__buttons">
+          <a href="/#form" class="btn btn--primary">Chat now &amp; get your price &rarr;</a>
+          <a href="tel:+14232089982" class="btn btn--outline">Call our AI</a>
+        </div>
+        <p class="quote-section__text-us">Or text us: <a href="sms:+14232089982">(423) 208-9982</a></p>
+        <p class="quote-section__trust">Available 24/7. No obligation. No pressure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9 — FAQ (white) -->
+  <section class="section section--white" style="padding:4rem 1rem;">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Common questions</h2>
+      </div>
+      <div class="faq__list" style="max-width:740px;margin:0 auto;">
+        <div class="faq__item">
+          <button class="faq__question">
+            How much does AI lead capture cost?
+            <span class="faq__toggle">+</span>
+          </button>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">
+              <p>It depends on your business size and what you need. Our AI assistant can give you a custom quote in about 2 minutes &mdash; just click &ldquo;Get a Quote&rdquo; above.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question">
+            Is there a contract?
+            <span class="faq__toggle">+</span>
+          </button>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">
+              <p>No long-term contracts. Month to month. Cancel anytime.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question">
+            Do I keep my existing phone number?
+            <span class="faq__toggle">+</span>
+          </button>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">
+              <p>Yes. We set up a dedicated AI number. Your existing number stays the same.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question">
+            What happens when a lead needs a real person?
+            <span class="faq__toggle">+</span>
+          </button>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">
+              <p>You get notified instantly. Every call and text is recorded so you can see what was said. You&rsquo;re always in the loop.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question">
+            How fast can this be set up?
+            <span class="faq__toggle">+</span>
+          </button>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">
+              <p>Most businesses are live within 48 hours of signing up.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10 — DEAL OF THE WEEK BANNER -->
+  <section class="deal-banner">
+    <div class="container" style="max-width:700px;margin:0 auto;">
+      <span class="section__label">This Week&rsquo;s Deal</span>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:800;color:#ffffff;margin:0.75rem 0 1rem;line-height:1.15;">Get AI Lead Capture + GBP Optimization bundled</h2>
+      <p style="color:#b8c0d0;font-size:1.05rem;line-height:1.7;margin-bottom:1.5rem;">Save when you bundle. Limited spots this month.</p>
+      <a href="/offer/" class="btn btn--primary">See this week&rsquo;s deal &rarr;</a>
+    </div>
+  </section>
+
+  <!-- SECTION 11 — BACKUP FORM -->
+  <section style="background:#060f1a;border-top:3px solid #00D4FF;padding:4rem 1rem;text-align:center;">
+    <div style="max-width:640px;margin:0 auto;">
+      <span class="section__label">Get started</span>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:#ffffff;margin:0.75rem 0 1rem;line-height:1.15;">Ready to stop losing leads?</h2>
+      <p style="color:#aaa;font-size:1.1rem;line-height:1.7;margin:0 auto;">Fill out the form and we&rsquo;ll follow up within 2 hours.</p>
+    </div>
+  </section>
+
+  <section class="section form-section" id="form">
+    <div class="container">
+      <div class="form-section__inner">
+        <div class="form-section__embed" style="max-width:700px;margin:0 auto;">
+          <iframe
+            src="https://api.flowbotx.ai/widget/form/GWRgBlv9w8IMhrRNrXEw"
+            style="width:100%;height:100%;border:none;border-radius:3px"
+            id="inline-GWRgBlv9w8IMhrRNrXEw"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Snapflow Business Audit"
+            data-height="1003"
+            data-layout-iframe-id="inline-GWRgBlv9w8IMhrRNrXEw"
+            data-form-id="GWRgBlv9w8IMhrRNrXEw"
+            title="Snapflow Business Audit"
+          >
+          </iframe>
+          <script src="https://api.flowbotx.ai/js/form_embed.js" defer></script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__logo"><img src="../assets/snapflow-logo-transparent.png" alt="Snap Flow Solutions" style="height:100px;width:auto;"></div>
+          <p class="footer__tagline">Your AI-powered local marketing team. We capture your leads, build your Google presence, and help you close more deals.</p>
+          <div class="footer__nap" style="color:#94a3b8;font-size:0.95rem;line-height:1.6;margin-top:0.75rem;">
+            <strong style="color:#ffffff;">Snap Flow Solutions</strong><br>
+            Ringgold, GA 30736<br>
+            <a href="tel:+14232089982" style="color:#94a3b8;">(423) 208-9982</a><br>
+            <a href="mailto:hello@snapflowsolutions.com" style="color:#94a3b8;">hello@snapflowsolutions.com</a>
+          </div>
+          <div class="footer__social" style="display:flex;gap:1rem;margin-top:1rem;">
+            <a href="https://g.page/r/CSHv_mKkf2QQEBM" target="_blank" rel="noopener" aria-label="Google Business Profile" style="color:#94a3b8;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/snapflowsolutions" target="_blank" rel="noopener" aria-label="Facebook" style="color:#94a3b8;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <!-- Instagram temporarily hidden — username cooldown until ~2026-04-13
+            <a href="https://www.instagram.com/snapflowsolutions" target="_blank" rel="noopener" aria-label="Instagram" style="color:#94a3b8;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+            -->
+            <a href="https://www.linkedin.com/company/snapflowsolutions" target="_blank" rel="noopener" aria-label="LinkedIn" style="color:#94a3b8;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__links">
+          <a href="/#how-it-works">How It Works</a>
+          <a href="/#services">Services</a>
+          <a href="/faq/">FAQ</a>
+          <a href="/#form">Free Checkup</a>
+          <a href="/chattanooga/">Chattanooga</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Service</a>
+        </div>
+        <div class="footer__email">
+          <a href="mailto:hello@snapflowsolutions.com">hello@snapflowsolutions.com</a>
+        </div>
+      </div>
+      <div class="footer__bottom">&copy; 2026 Snap Flow Solutions. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <div class="sticky-cta">
+    <a href="tel:+14232089982" class="btn btn--outline btn--sm">Call Now</a>
+    <a href="/#form" class="btn btn--primary btn--sm">Free Checkup</a>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script> var script = document.createElement("script"); script.setAttribute("nowprocket", ""); script.setAttribute("nitro-exclude", ""); script.src = "https://seo-tools.leadconnectorhq.com/scripts/dynamic_optimization.js"; script.dataset.uuid = "2e9754cd-8797-4172-a18f-46069c59b2e8"; script.id = "sa-dynamic-optimization"; document.head.appendChild(script); </script>
+</body>
+</html>

@@ -24,6 +24,21 @@
     });
   }
 
+  // -- Services Dropdown --
+  var dropdown = document.querySelector('.nav__dropdown');
+  var trigger = document.querySelector('.nav__dropdown-trigger');
+  if (dropdown && trigger) {
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      dropdown.classList.toggle('is-open');
+    });
+    document.addEventListener('click', function (e) {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('is-open');
+      }
+    });
+  }
+
   // -- FAQ Accordion --
   const faqItems = document.querySelectorAll('.faq__item');
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+O n<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -31,7 +31,7 @@
       background: var(--navy);
       color: var(--white);
       font-family: 'Outfit', sans-serif;
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
@@ -233,7 +233,7 @@
 
     .scorecard tbody td {
       padding: 14px 20px;
-      font-size: 14px;
+      font-size: 16px;
       vertical-align: middle;
     }
 
@@ -244,7 +244,7 @@
 
     .scorecard tbody td:nth-child(2) {
       color: var(--muted);
-      font-size: 13px;
+      font-size: 15px;
     }
 
     .scorecard tbody td:last-child {
@@ -303,7 +303,7 @@
     }
 
     .gap-card__title {
-      font-size: 14px;
+      font-size: 17px;
       font-weight: 700;
       color: var(--white);
     }
@@ -325,7 +325,7 @@
     }
 
     .gap-card__body {
-      font-size: 13px;
+      font-size: 16px;
       color: var(--muted);
       line-height: 1.6;
     }
@@ -357,14 +357,14 @@
     }
 
     .rec-box__price {
-      font-size: 1.1rem;
+      font-size: 1.4rem;
       color: var(--cyan);
       font-weight: 600;
       margin-bottom: 16px;
     }
 
     .rec-box__why {
-      font-size: 14px;
+      font-size: 16px;
       color: #c8d0e0;
       line-height: 1.7;
       border-top: 1px solid var(--navy-line);
@@ -382,7 +382,7 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      font-size: 13px;
+      font-size: 16px;
       color: var(--muted);
     }
 
@@ -394,10 +394,10 @@
       margin-top: 1px;
     }
 
-    /* ── COST OF INACTION ── */
+    /* ── POTENTIAL GROWTH ── */
     .inaction-box {
-      background: rgba(239,68,68,0.06);
-      border: 1px solid rgba(239,68,68,0.2);
+      background: rgba(34,197,94,0.06);
+      border: 1px solid rgba(34,197,94,0.2);
       border-radius: 12px;
       padding: 24px 28px;
       margin-bottom: 36px;
@@ -412,14 +412,14 @@
     }
 
     .inaction-box__text h3 {
-      font-size: 15px;
+      font-size: 18px;
       font-weight: 700;
-      color: var(--missing);
+      color: var(--strong);
       margin-bottom: 4px;
     }
 
     .inaction-box__text p {
-      font-size: 13px;
+      font-size: 16px;
       color: var(--muted);
       line-height: 1.6;
     }
@@ -431,9 +431,9 @@
     }
 
     .inaction-box__amount-number {
-      font-size: 2rem;
+      font-size: 2.8rem;
       font-weight: 800;
-      color: var(--missing);
+      color: var(--strong);
       line-height: 1;
     }
 
@@ -462,7 +462,7 @@
     }
 
     .opener-box__quote {
-      font-size: 15px;
+      font-size: 17px;
       color: var(--white);
       line-height: 1.75;
       font-style: italic;
@@ -472,7 +472,7 @@
     }
 
     .opener-box__next {
-      font-size: 13px;
+      font-size: 16px;
       color: var(--muted);
     }
 
@@ -502,7 +502,7 @@
     }
 
     .cta-band__text p {
-      font-size: 13px;
+      font-size: 16px;
       color: var(--muted);
     }
 
@@ -599,15 +599,7 @@
   <!-- ═══ HEADER ═══ -->
   <div class="header">
     <div class="header__brand">
-      <div class="header__logo-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#0a0e27" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-        </svg>
-      </div>
-      <div>
-        <div class="header__brand-name">Snap Flow Solutions</div>
-        <div class="header__brand-sub">AI-Powered Local Marketing</div>
-      </div>
+      <img src="/assets/snapflow-logo-transparent.png" alt="Snap Flow Solutions" style="height:48px;width:auto;">
     </div>
     <div class="header__meta">
       <div class="header__meta-label">Audit Date</div>
@@ -709,7 +701,7 @@
 
     <!-- ═══ GAPS ═══ -->
     <div class="section-block">
-      <div class="section-title">What's Costing You Money Right Now</div>
+      <div class="section-title">Where the Biggest Growth Opportunities Are</div>
       <div class="gap-grid">
 
         <!-- MISSING ITEMS — use gap-card (red border) -->
@@ -757,16 +749,16 @@
       </div>
     </div>
 
-    <!-- ═══ COST OF INACTION ═══ -->
+    <!-- ═══ POTENTIAL GROWTH ═══ -->
     <div class="inaction-box">
-      <div class="inaction-box__icon">⚠️</div>
+      <div class="inaction-box__icon">📈</div>
       <div class="inaction-box__text">
-        <h3>Estimated Monthly Revenue Loss</h3>
-        <p>Based on missed calls, cold leads, and zero reactivation — this is what the current gaps are costing every month.</p>
+        <h3>Potential Monthly Growth</h3>
+        <p>Based on industry benchmarks for call capture, automated follow-up, and reactivation — this is what investing in these systems could add to your monthly revenue.</p>
       </div>
       <div class="inaction-box__amount">
-        <div class="inaction-box__amount-number">$<!-- AMOUNT e.g. 4,200 -->+</div>
-        <div class="inaction-box__amount-label">per month in missed revenue</div>
+        <div class="inaction-box__amount-number">$<!-- AMOUNT e.g. 2,500 -->+</div>
+        <div class="inaction-box__amount-label">potential monthly growth</div>
       </div>
     </div>
 

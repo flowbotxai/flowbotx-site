@@ -1,0 +1,378 @@
+{
+  "version": "2.1",
+  "updated": "2026-04-03",
+  "currency": "USD",
+  "notes": "Every service is individually priced and maps to one or more audit categories. Bundle discounts reward buying more without forcing packages. Each service is the smallest sellable unit. Client-facing language NEVER mentions GHL — always say Snap Flow Solutions platform.",
+
+  "bundle_discounts": {
+    "1-2": 0,
+    "3-4": 0.10,
+    "5-6": 0.15,
+    "7+": 0.20
+  },
+
+  "map_pack_combo": {
+    "rule": "When 3+ services from google_presence + reviews_reputation are recommended together, present as Local Map Pack solution",
+    "monthly_fee": 349,
+    "setup_fee": 497
+  },
+
+  "per_citation_pricing": {
+    "1-25": 4.00,
+    "26-50": 3.50,
+    "51+": 3.00,
+    "minimum_order": 10
+  },
+
+  "audit_categories": [
+    "website",
+    "google_presence",
+    "phone_communication",
+    "lead_followup",
+    "social_media",
+    "reviews_reputation",
+    "repeat_business",
+    "crm_pipeline",
+    "ai_search_visibility"
+  ],
+
+  "services": [
+    {
+      "id": "gbp_optimization",
+      "name": "Google Business Profile Optimization",
+      "description": "Full GBP setup — categories, photos, services, posts, and Q&A management",
+      "setup_fee": 197,
+      "monthly_fee": 79,
+      "one_time_only": false,
+      "audit_category": "google_presence",
+      "delivery_days": "1-2",
+      "keywords": ["google", "gbp", "google business", "maps", "listing", "google maps", "map pack"]
+    },
+    {
+      "id": "gbp_posts",
+      "name": "GBP Weekly Posts",
+      "description": "Weekly Google Business Profile posts — offers, updates, photos to keep listing active",
+      "setup_fee": 0,
+      "monthly_fee": 49,
+      "one_time_only": false,
+      "audit_category": "google_presence",
+      "delivery_days": "1",
+      "keywords": ["google posts", "gbp posts", "google updates"]
+    },
+    {
+      "id": "citation_cleanup",
+      "name": "Citation Cleanup & NAP Consistency",
+      "description": "Fix business name, address, phone across 40+ directories — Yelp, Bing, Apple Maps, etc.",
+      "setup_fee": 210,
+      "monthly_fee": 0,
+      "one_time_only": true,
+      "audit_category": "google_presence",
+      "delivery_days": "14-21",
+      "keywords": ["citations", "nap", "directories", "yelp", "bing", "apple maps", "listings"]
+    },
+    {
+      "id": "citation_monitoring",
+      "name": "Citation Monitoring & Maintenance",
+      "description": "Ongoing monitoring of directory listings — catch and fix changes, new submissions monthly",
+      "setup_fee": 0,
+      "monthly_fee": 29,
+      "one_time_only": false,
+      "audit_category": "google_presence",
+      "delivery_days": "1",
+      "keywords": ["citation monitoring", "directory maintenance", "listing monitoring"]
+    },
+    {
+      "id": "citation_manual",
+      "name": "Manual Citation Submission",
+      "description": "Individual directory listing submission or correction — à la carte, you pick the directories",
+      "setup_fee": 0,
+      "monthly_fee": 0,
+      "per_unit_fee": 4.00,
+      "unit": "citation",
+      "bulk_pricing": {"26-50": 3.50, "51+": 3.00},
+      "minimum_order": 10,
+      "one_time_only": true,
+      "audit_category": "google_presence",
+      "delivery_days": "7-14",
+      "keywords": ["citation", "directory", "listing", "individual", "manual submission"]
+    },
+    {
+      "id": "city_landing_page",
+      "name": "City/Service Area Landing Page",
+      "description": "Dedicated SEO-optimized page targeting a specific city or service area",
+      "setup_fee": 297,
+      "monthly_fee": 0,
+      "one_time_only": true,
+      "audit_category": "google_presence",
+      "delivery_days": "3-5",
+      "keywords": ["city page", "service area", "local page", "geo page", "city landing page"]
+    },
+    {
+      "id": "aeo",
+      "name": "AI Search Visibility (AEO/GEO)",
+      "description": "Optimize for AI search engines — ChatGPT, Perplexity, Google AI Overviews",
+      "setup_fee": 497,
+      "monthly_fee": 297,
+      "one_time_only": false,
+      "audit_category": "ai_search_visibility",
+      "delivery_days": "5-7",
+      "keywords": ["ai search", "aeo", "geo", "chatgpt", "perplexity", "ai overviews"]
+    },
+    {
+      "id": "landing_page",
+      "name": "Landing Page Design",
+      "description": "Custom conversion-focused landing page with lead capture form and CTA",
+      "setup_fee": 497,
+      "monthly_fee": 0,
+      "one_time_only": true,
+      "audit_category": "website",
+      "delivery_days": "3-5",
+      "keywords": ["landing page", "website", "web page", "site", "page design"]
+    },
+    {
+      "id": "website_optimization",
+      "name": "Website Optimization",
+      "description": "Fix CTA placement, mobile responsiveness, speed, contact info above the fold",
+      "setup_fee": 297,
+      "monthly_fee": 0,
+      "one_time_only": true,
+      "audit_category": "website",
+      "delivery_days": "3-5",
+      "keywords": ["website fix", "website optimization", "mobile friendly", "speed", "cta"]
+    },
+    {
+      "id": "chat_widget",
+      "name": "Website Chat Widget",
+      "description": "AI-powered chat widget on their website for instant lead capture",
+      "setup_fee": 0,
+      "monthly_fee": 49,
+      "one_time_only": false,
+      "audit_category": "website",
+      "delivery_days": "1",
+      "keywords": ["chat", "widget", "live chat", "website chat", "chatbot"]
+    },
+    {
+      "id": "missed_call",
+      "name": "Missed Call Text-Back",
+      "description": "Automatic text sent instantly when a call goes unanswered — captures the lead before they call a competitor",
+      "setup_fee": 0,
+      "monthly_fee": 39,
+      "one_time_only": false,
+      "audit_category": "phone_communication",
+      "delivery_days": "1",
+      "keywords": ["missed call", "text back", "unanswered", "missed calls"]
+    },
+    {
+      "id": "voice_ai",
+      "name": "Voice AI Receptionist",
+      "description": "AI answers calls 24/7, collects caller info, qualifies leads, books appointments",
+      "setup_fee": 197,
+      "monthly_fee": 149,
+      "one_time_only": false,
+      "audit_category": "phone_communication",
+      "delivery_days": "1-2",
+      "keywords": ["voice ai", "ai receptionist", "phone", "answering", "calls", "receptionist", "after hours"]
+    },
+    {
+      "id": "sms_ai",
+      "name": "SMS AI Assistant",
+      "description": "Conversational AI that handles inbound and outbound text messages — answers questions, qualifies leads",
+      "setup_fee": 197,
+      "monthly_fee": 129,
+      "one_time_only": false,
+      "audit_category": "phone_communication",
+      "delivery_days": "1-2",
+      "keywords": ["sms", "text message", "texting", "text assistant", "sms ai"]
+    },
+    {
+      "id": "unified_inbox",
+      "name": "Unified Inbox Setup",
+      "description": "All channels — phone, text, email, DM, form — routed to one dashboard so nothing gets lost",
+      "setup_fee": 197,
+      "monthly_fee": 49,
+      "one_time_only": false,
+      "audit_category": "phone_communication",
+      "delivery_days": "1-2",
+      "keywords": ["unified inbox", "one place", "all channels", "inbox", "dashboard"]
+    },
+    {
+      "id": "speed_to_lead",
+      "name": "Speed-to-Lead Automation",
+      "description": "Instant automated response within 60 seconds of any form fill, missed call, or new lead",
+      "setup_fee": 97,
+      "monthly_fee": 39,
+      "one_time_only": false,
+      "audit_category": "lead_followup",
+      "delivery_days": "1",
+      "keywords": ["speed to lead", "instant response", "fast follow up", "60 seconds"]
+    },
+    {
+      "id": "nurture_email",
+      "name": "Email Nurture Sequences",
+      "description": "Automated email drip sequences for new leads — keeps your business top of mind until they're ready",
+      "setup_fee": 197,
+      "monthly_fee": 59,
+      "one_time_only": false,
+      "audit_category": "lead_followup",
+      "delivery_days": "3-5",
+      "keywords": ["email", "drip", "nurture", "email sequence", "follow up email"]
+    },
+    {
+      "id": "nurture_sms",
+      "name": "SMS Nurture Sequences",
+      "description": "Automated text message follow-up sequences for leads who don't convert immediately",
+      "setup_fee": 197,
+      "monthly_fee": 59,
+      "one_time_only": false,
+      "audit_category": "lead_followup",
+      "delivery_days": "3-5",
+      "keywords": ["sms nurture", "text follow up", "sms sequence", "text drip"]
+    },
+    {
+      "id": "booking",
+      "name": "Online Booking / Scheduling",
+      "description": "Online calendar with automated confirmations, reminders, and no-show follow-up",
+      "setup_fee": 97,
+      "monthly_fee": 39,
+      "one_time_only": false,
+      "audit_category": "lead_followup",
+      "delivery_days": "1",
+      "keywords": ["booking", "scheduling", "calendar", "appointments", "reminders", "online booking"]
+    },
+    {
+      "id": "review_requests",
+      "name": "Automated Review Requests",
+      "description": "Automated SMS/email review requests sent after completed jobs — builds Google reviews on autopilot",
+      "setup_fee": 97,
+      "monthly_fee": 59,
+      "one_time_only": false,
+      "audit_category": "reviews_reputation",
+      "delivery_days": "1",
+      "keywords": ["reviews", "review requests", "google reviews", "stars", "get reviews"]
+    },
+    {
+      "id": "review_responses",
+      "name": "Review Response Management",
+      "description": "Professional responses to every Google review — positive and negative — within 24 hours",
+      "setup_fee": 0,
+      "monthly_fee": 39,
+      "one_time_only": false,
+      "audit_category": "reviews_reputation",
+      "delivery_days": "1",
+      "keywords": ["review response", "respond to reviews", "negative reviews", "reply to reviews"]
+    },
+    {
+      "id": "reputation_monitoring",
+      "name": "Reputation Monitoring & Alerts",
+      "description": "Track new reviews across Google, Yelp, Facebook — instant alerts when reviews are posted",
+      "setup_fee": 0,
+      "monthly_fee": 29,
+      "one_time_only": false,
+      "audit_category": "reviews_reputation",
+      "delivery_days": "1",
+      "keywords": ["monitoring", "review alerts", "reputation tracking", "reputation monitoring"]
+    },
+    {
+      "id": "social_posting",
+      "name": "Social Media Posting",
+      "description": "Consistent posting schedule across Facebook and Instagram — 3-4 posts per week",
+      "setup_fee": 97,
+      "monthly_fee": 199,
+      "one_time_only": false,
+      "audit_category": "social_media",
+      "delivery_days": "3-5",
+      "keywords": ["social media", "posting", "facebook", "instagram", "content"]
+    },
+    {
+      "id": "social_profile_setup",
+      "name": "Social Profile Setup & Optimization",
+      "description": "Set up or optimize Facebook business page and Instagram profile — bios, photos, links, CTA buttons",
+      "setup_fee": 147,
+      "monthly_fee": 0,
+      "one_time_only": true,
+      "audit_category": "social_media",
+      "delivery_days": "2-3",
+      "keywords": ["facebook page", "instagram profile", "social setup", "social optimization"]
+    },
+    {
+      "id": "social_video",
+      "name": "Short-Form Video Content",
+      "description": "Professional editing of short-form video — reels, TikTok, Shorts. Per-video pricing with monthly packages available.",
+      "setup_fee": 197,
+      "monthly_fee": 0,
+      "per_unit_fee": 225,
+      "unit": "video",
+      "packages": {"4_videos_mo": 799, "8_videos_mo": 1497},
+      "one_time_only": false,
+      "audit_category": "social_media",
+      "delivery_days": "5-7",
+      "keywords": ["video", "reels", "tiktok", "stories", "short form"]
+    },
+    {
+      "id": "reactivation_campaign",
+      "name": "Past Customer Reactivation Campaign",
+      "description": "Automated outreach to past customers — 'We haven't seen you in a while' sequences via SMS and email",
+      "setup_fee": 197,
+      "monthly_fee": 79,
+      "one_time_only": false,
+      "audit_category": "repeat_business",
+      "delivery_days": "3-5",
+      "keywords": ["reactivation", "past customers", "win back", "old customers", "dormant"]
+    },
+    {
+      "id": "seasonal_campaigns",
+      "name": "Seasonal Promotion Campaigns",
+      "description": "Scheduled seasonal offers and promotions — spring specials, holiday deals, slow-season pushes",
+      "setup_fee": 97,
+      "monthly_fee": 59,
+      "one_time_only": false,
+      "audit_category": "repeat_business",
+      "delivery_days": "3-5",
+      "keywords": ["seasonal", "promotions", "specials", "holiday", "offers", "slow season"]
+    },
+    {
+      "id": "referral_program",
+      "name": "Referral Program Setup",
+      "description": "Automated referral tracking and reward system — customers refer, you reward, system tracks it all",
+      "setup_fee": 197,
+      "monthly_fee": 49,
+      "one_time_only": false,
+      "audit_category": "repeat_business",
+      "delivery_days": "3-5",
+      "keywords": ["referral", "refer a friend", "referral program", "word of mouth"]
+    },
+    {
+      "id": "crm_setup",
+      "name": "CRM Setup & Pipeline Build",
+      "description": "Full CRM with custom pipeline stages, contact fields, tags, and lead tracking",
+      "setup_fee": 497,
+      "monthly_fee": 79,
+      "one_time_only": false,
+      "audit_category": "crm_pipeline",
+      "delivery_days": "3-5",
+      "keywords": ["crm", "pipeline", "contacts", "leads", "sales pipeline", "deal tracking"]
+    },
+    {
+      "id": "appointment_reminders",
+      "name": "Appointment Reminder Automation",
+      "description": "Automated SMS/email reminders before appointments — reduces no-shows by 60%+",
+      "setup_fee": 47,
+      "monthly_fee": 29,
+      "one_time_only": false,
+      "audit_category": "crm_pipeline",
+      "delivery_days": "1",
+      "keywords": ["reminders", "appointment reminders", "no show", "confirmation"]
+    },
+    {
+      "id": "custom_integration",
+      "name": "Custom Integration / Tool Connection",
+      "description": "Connect existing tools, forms, and software into the automation ecosystem",
+      "setup_fee": 297,
+      "monthly_fee": 49,
+      "one_time_only": false,
+      "audit_category": "crm_pipeline",
+      "delivery_days": "3-7",
+      "keywords": ["integration", "connect", "api", "zapier", "forms", "sync", "software"]
+    }
+  ]
+}
