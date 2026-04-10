@@ -97,6 +97,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://snapflowsolutions.com/services/</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://snapflowsolutions.com/privacy-policy/</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>yearly</changefreq>

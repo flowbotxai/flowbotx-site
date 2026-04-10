@@ -4,14 +4,16 @@
 
 ## Services
 
-- [AI-Powered Lead Capture & Follow-Up](https://snapflowsolutions.com/#services): Automated 24/7 call answering, instant text-back, and AI-driven follow-up sequences that respond to every inquiry within 60 seconds.
-- [Google Business Profile Optimization](https://snapflowsolutions.com/#services): Complete GBP setup, optimization, weekly posting, review generation, citation building, and Map Pack ranking strategy.
+- [AI-Powered Lead Capture & Follow-Up](https://snapflowsolutions.com/services/): Automated 24/7 call answering, instant text-back, and AI-driven follow-up sequences that respond to every inquiry within 60 seconds.
+- [Google Business Profile Optimization](https://snapflowsolutions.com/services/): Complete GBP setup, optimization, weekly posting, review generation, citation building, and Map Pack ranking strategy.
 - [AI Search Visibility (AEO)](https://snapflowsolutions.com/blog/ai-search-visibility/): Optimization for AI answer engines including ChatGPT, Google AI Overviews, and Perplexity so AI platforms recommend your business.
-- [Review Generation & Reputation Management](https://snapflowsolutions.com/#services): Automated post-job review requests, real-time monitoring, and professional response to every review.
-- [Local SEO & Location Page Development](https://snapflowsolutions.com/#services): City-specific service area pages, citation building across directories, NAP consistency audits, and local search ranking optimization.
+- [Review Generation & Reputation Management](https://snapflowsolutions.com/services/): Automated post-job review requests, real-time monitoring, and professional response to every review.
+- [Local SEO & Location Page Development](https://snapflowsolutions.com/services/): City-specific service area pages, citation building across directories, NAP consistency audits, and local search ranking optimization.
 
 - [AI Lead Capture & Follow-Up](https://snapflowsolutions.com/ai-lead-capture/): Done-for-you AI lead capture and follow-up for small businesses — AI call answering 24/7, missed call text-back, automated follow-up sequences, appointment booking, and lead dashboard for service businesses in Chattanooga and beyond.
 - [AI Consulting for Small Business](https://snapflowsolutions.com/ai-consulting/): Practical AI consulting and implementation for small business owners — lead capture, follow-up automation, reputation management, and local marketing powered by AI.
+
+- [Services Directory](https://snapflowsolutions.com/services/): Full directory of all AI-powered marketing services offered by Snap Flow Solutions, including AI lead capture, AI consulting, GBP optimization, AI search visibility, review management, local SEO, AI receptionist, video production, and landing page design.
 
 ## Locations Served
 
