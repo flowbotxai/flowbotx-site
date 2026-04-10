@@ -925,6 +925,53 @@ ul { list-style: none; }
   .pricing__grid--three { grid-template-columns: 1fr; }
 }
 
+/* Section background variations */
+.section--navy {
+  background-color: #0f1535;
+}
+
+.section--dark {
+  background-color: #0a0e27;
+}
+
+.section--light {
+  background-color: #141a3d;
+  border-top: 1px solid rgba(59, 130, 246, 0.08);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.08);
+}
+
+.section--white {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+.section--white h2,
+.section--white h3 {
+  color: #0f172a;
+}
+
+.section--white p,
+.section--white li {
+  color: #334155;
+}
+
+.section--white .card,
+.section--white .methodology__card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.section--white .card h3,
+.section--white .methodology__card h3 {
+  color: #0f172a;
+}
+
+.section--white .card p,
+.section--white .methodology__card p {
+  color: #475569;
+}
+
 /* AEO Citability Blocks */
 .citability-section {
   padding: 2rem 0;
