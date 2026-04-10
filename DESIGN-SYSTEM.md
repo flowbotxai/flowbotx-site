@@ -42,8 +42,7 @@ The website is the closer. Visitor decides yes or no WITHOUT a phone call.
 
 Sections in order:
 1. Hero (dark) — eyebrow, H1, subtitle, CTA, 3 stat badges
-2. Citability block (dark) — AEO callout box
-3. Problem section (white) — 3 pain point cards
+2. Problem section (white) — 3 pain point cards
 4. What's included (dark) — 3-6 feature cards
 5. See it in action (white) — conversation card + results panel
 6. How it works (white/light) — 3 numbered steps
@@ -64,8 +63,7 @@ Rules:
 ### 2. BLOG POST
 1. Hero (dark) — category tag, H1, byline, last-updated
 2. Article body (WHITE bg, dark text) — proper H2/H3 hierarchy
-3. Citability block — callout box after first paragraph
-4. Mid-article CTA (dark) — link to free checkup
+3. Mid-article CTA (dark) — link to free checkup
 5. Author box — photo + bio
 6. FAQ (light)
 7. Form CTA (dark)
@@ -98,8 +96,8 @@ Results panel has 3 stacked cards:
 ### Comparison Table (Numbers don't lie)
 Manual vs AI with revenue impact badges. Before/after specific numbers.
 
-### Citability Block
-Left cyan border, subtle bg, 1rem font, 24px padding, max-width 800px.
+### Citability Content
+Citability content goes in JSON-LD schema description fields, NOT as a visible block on the page. Every page's primary schema (@type Service, Article, or LocalBusiness) must have a 134-167 word description that directly answers the page's target query.
 
 ### Feature Card
 Icon + title + description. Dark and light variants.
