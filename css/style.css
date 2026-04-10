@@ -924,3 +924,18 @@ ul { list-style: none; }
   .checkup-section__inner { grid-template-columns: 1fr; gap: 2rem; }
   .pricing__grid--three { grid-template-columns: 1fr; }
 }
+
+/* AEO Citability Blocks */
+.citability-section {
+  padding: 2rem 0;
+  background: transparent;
+}
+
+.citability-block {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
