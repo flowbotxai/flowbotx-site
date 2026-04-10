@@ -14,7 +14,23 @@ Read this file before making ANY visual, CSS, or HTML layout changes to the site
 - Text muted dark: #475569
 - Text light (on dark): #b8c0d0
 - Font: Outfit (Google Fonts)
-- Min font size: 14px — nothing smaller ever
+- Min font size: 16px — HARD FLOOR, nothing smaller ever
+
+## Typography Scale (smallest → largest)
+Every font-size in style.css must be ≥ 16px. No exceptions.
+
+| Size | Weight | Use |
+|------|--------|-----|
+| 16px | 600 | Eyebrow text (uppercase labels), timestamps, status text, badges, footer text, source lines |
+| 17px | 400 | Step descriptions in results panel, math lines |
+| 18px | 400–600 | Body/paragraph text, card body text, chat bubbles, list items, step labels (strong), CTA buttons, FAQ text |
+| 20px | 600 | Chat header name ("Snap Flow AI"), section subtitle (paragraph after H2) |
+| 22px | 700 | Card titles (h3), feature card titles, step card titles |
+| 24px | 700 | Results panel headings ("What just happened", "The math") |
+| clamp(30px, 4.5vw, 46px) | 800 | H2 section headings |
+| clamp(3rem, 6vw, 4.5rem) | 800 | Hero H1 title |
+
+When adding new elements: pick the closest size from this scale. Do NOT invent new sizes.
 
 ## Background Strategy
 Default dark navy. No more than 2 consecutive dark sections. Alternate with white/light.
