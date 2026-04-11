@@ -2,6 +2,9 @@
 
 Read this file before making ANY visual, CSS, or HTML layout changes to the site.
 
+## Brand Voice Rule
+Only use "AI" when it's literally the subject matter (blog about AI search engines) or a keyword needed for organic ranking. Never use AI in agency positioning, service names, headlines, meta tags, or schema. The agency is built on 28 years of experience. AI assists — it does not do the work. If the sentence works without "AI," remove it.
+
 ## Brand Tokens
 - Navy (default bg): #0a0e27
 - Cyan primary: #06b6d4
@@ -24,7 +27,7 @@ Every font-size in style.css must be ≥ 16px. No exceptions.
 | 16px | 600 | Eyebrow text (uppercase labels), timestamps, status text, badges, footer text, source lines |
 | 17px | 400 | Step descriptions in results panel, math lines |
 | 18px | 400–600 | Body/paragraph text, card body text, chat bubbles, list items, step labels (strong), CTA buttons, FAQ text |
-| 20px | 600 | Chat header name ("Snap Flow AI"), section subtitle (paragraph after H2) |
+| 20px | 600 | Chat header name ("Snap Flow"), section subtitle (paragraph after H2) |
 | 22px | 700 | Card titles (h3), feature card titles, step card titles |
 | 24px | 700 | Results panel headings ("What just happened", "The math") |
 | clamp(30px, 4.5vw, 46px) | 800 | H2 section headings |
@@ -46,7 +49,7 @@ Sections in order:
 4. What's included (dark) — 3-6 feature cards
 5. See it in action (white) — conversation card + results panel
 6. How it works (white/light) — 3 numbered steps
-7. Results (dark) — comparison table (Manual vs AI)
+7. Results (dark) — comparison table (Manual vs Automated)
 8. Get a Quote section (white) — drives to chatbot, NOT pricing tables
 9. Social proof (light) — reviews, stats
 10. FAQ (white) — includes cost/contract objections
@@ -80,7 +83,7 @@ Quote → Audit → Close pipeline:
 5. Customer books or doesn't. No pressure. No sales call.
 
 Three paths on every page:
-- Path 1: CHATBOT — Get a Quote, AI gives price
+- Path 1: CHATBOT — Get a Quote, assistant gives price
 - Path 2: VOICE/TEXT — Call or text (423) 208-9982
 - Path 3: HUMAN — Schedule call with Chris (last resort)
 
@@ -89,12 +92,12 @@ Three paths on every page:
 ### Conversation Card (See it in action)
 Two columns: Left = chat conversation, Right = results panel
 Results panel has 3 stacked cards:
-- "What just happened" — numbered steps of what AI did
-- "Without AI" — red box showing what would have happened
+- "What just happened" — numbered steps of what the system did
+- "Without automation" — red box showing what would have happened
 - "The math" — dark box with revenue calculation
 
 ### Comparison Table (Numbers don't lie)
-Manual vs AI with revenue impact badges. Before/after specific numbers.
+Manual vs Automated with revenue impact badges. Before/after specific numbers.
 
 ### Citability Content
 Citability content goes in JSON-LD schema description fields, NOT as a visible block on the page. Every page's primary schema (@type Service, Article, or LocalBusiness) must have a 134-167 word description that directly answers the page's target query.
