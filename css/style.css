@@ -157,6 +157,21 @@ ul { list-style: none; }
   font-weight: 800;
   color: var(--color-primary);
   letter-spacing: -0.5px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav__logo img {
+  width: 170px !important;
+  height: auto !important;
+  max-width: 170px;
+}
+
+@media (max-width: 600px) {
+  .nav__logo img {
+    width: 140px !important;
+    max-width: 140px;
+  }
 }
 
 .nav__links {
