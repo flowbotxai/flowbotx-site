@@ -15,7 +15,7 @@
 - **Website:** https://snapflowsolutions.com
 - **What we do:** AI-powered local marketing agency. Lead capture, automated follow-up, Google Maps/GBP optimization, review automation, AI search visibility (AEO), local SEO, CRM, reactivation campaigns.
 - **Who we serve:** Any independently owned business with a growth problem — not just blue-collar trades
-- **Pricing:** $129 Never Miss a Lead / $497 Growth / $897 Full Presence
+- **Pricing:** No specific prices on the website. All quoting happens through the chatbot (future) or after an audit. The chatbot gives ranges based on needs — final pricing depends on what the audit reveals and which services the client picks based on priority and budget.
 
 ### Social Profiles
 - Google Business Profile: https://g.page/r/CSHv_mKkf2QQEBM
