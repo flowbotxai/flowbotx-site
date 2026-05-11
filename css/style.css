@@ -242,7 +242,11 @@ ul { list-style: none; }
   padding-left: 20px;
   font-size: 1.1rem;
   font-weight: 500;
-  color: #d0d0e8;
+  color: #ffffff;
+}
+.nav__mobile .nav__mobile-dropdown a:hover,
+.nav__mobile .nav__mobile-dropdown a:active {
+  color: #22d3ee;
 }
 
 .nav__actions {
@@ -276,7 +280,8 @@ ul { list-style: none; }
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(6,6,18,0.98);
+  background: rgba(15, 21, 48, 0.98);
+  border-top: 1px solid rgba(34, 211, 238, 0.2);
   backdrop-filter: blur(16px);
   z-index: 999;
   padding: 40px 24px;
@@ -285,11 +290,20 @@ ul { list-style: none; }
 .nav__mobile a {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: #ffffff;
   padding: 12px 0;
   border-bottom: 1px solid var(--color-border);
+  transition: color 0.2s;
+}
+.nav__mobile a:hover,
+.nav__mobile a:active {
+  color: #22d3ee;
 }
 .nav__mobile .btn { margin-top: 16px; text-align: center; }
+.nav__mobile .btn--primary:hover,
+.nav__mobile .btn--primary:active { color: #060612; }
+.nav__mobile .btn--outline:hover,
+.nav__mobile .btn--outline:active { color: var(--color-primary); }
 
 /* -- HERO -- */
 .hero {
@@ -936,7 +950,7 @@ ul { list-style: none; }
   .financing-banner { padding: 1.5rem; }
 
   .nav__links,
-  .nav__actions .btn--outline {
+  .nav__actions {
     display: none;
   }
   .nav__hamburger { display: flex; }
@@ -969,7 +983,7 @@ ul { list-style: none; }
 
   .sticky-cta { display: flex; }
 
-  body { padding-bottom: 72px; }
+  body { padding-bottom: calc(80px + env(safe-area-inset-bottom) + 16px); }
 }
 
 @media (max-width: 480px) {
