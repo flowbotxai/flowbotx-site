@@ -279,7 +279,8 @@ ul { list-style: none; }
   top: 72px;
   left: 0;
   right: 0;
-  bottom: 0;
+  height: calc(100vh - 72px);
+  height: calc(100dvh - 72px);
   background: rgba(15, 21, 48, 0.98);
   border-top: 1px solid rgba(34, 211, 238, 0.2);
   backdrop-filter: blur(16px);
