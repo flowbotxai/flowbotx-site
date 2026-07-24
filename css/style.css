@@ -1213,6 +1213,113 @@ ul { list-style: none; }
   color: var(--muted);
 }
 
+/* -- PROOF / RESULTS (case study) -- */
+.proof {
+  background: var(--navy);
+  color: var(--white);
+}
+.proof__label {
+  color: var(--gold-light);
+}
+.proof .section__title {
+  color: var(--white);
+}
+
+.proof__lede {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.proof__lede p {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 20px;
+}
+.proof__lede p:last-child { margin-bottom: 0; }
+
+.proof__shot {
+  max-width: 960px;
+  margin: 48px auto 0;
+}
+.proof__shot img,
+.proof__shot-ph {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px;
+}
+.proof__shot img { display: block; }
+.proof__shot-ph {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.6);
+  font-family: var(--mono);
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 1rem;
+}
+.proof__shot-cap {
+  font-family: var(--mono);
+  font-size: 16px;
+  color: var(--gold-light);
+  margin-top: 12px;
+  text-align: center;
+}
+
+.proof__results {
+  max-width: 960px;
+  margin: 56px auto 0;
+}
+.proof__row {
+  display: grid;
+  grid-template-columns: minmax(0, 38%) 1fr;
+  gap: 32px;
+  padding: 28px 0;
+  align-items: baseline;
+}
+.proof__row + .proof__row {
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.proof__figure {
+  font-family: var(--mono);
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--gold-light);
+}
+.proof__figure--quote {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.proof__desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.82);
+}
+
+.proof__link {
+  display: inline-block;
+  margin-top: 40px;
+  font-family: var(--body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  transition: color 0.2s;
+}
+.proof__link:hover { text-decoration: underline; }
+
+@media (max-width: 720px) {
+  .proof__row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
 /* -- FAQ -- */
 .faq__list {
   max-width: 720px;
