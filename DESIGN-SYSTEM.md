@@ -6,18 +6,29 @@ Read this file before making ANY visual, CSS, or HTML layout changes to the site
 Only use "AI" when it's literally the subject matter (blog about AI search engines) or a keyword needed for organic ranking. Never use AI in agency positioning, service names, headlines, meta tags, or schema. The agency is built on 28 years of experience. AI assists — it does not do the work. If the sentence works without "AI," remove it.
 
 ## Brand Tokens
-- Navy (default bg): #0a0e27
-- Cyan primary: #06b6d4
-- Cyan light: #22d3ee
-- Accent cyan: #00D4FF
-- White: #FFFFFF
-- Light gray: #f1f5f9
-- Text dark: #1a1a2e
-- Text heading: #0f172a
-- Text muted dark: #475569
-- Text light (on dark): #b8c0d0
-- Font: Outfit (Google Fonts)
+- `--navy` #002B43 — buttons, dark sections, primary brand color
+- `--navy-deep` #001C2D — footer, button hover, deepest dark
+- `--white` #FFFFFF — default page background
+- `--surface` #F5F4F0 — alternating light sections, cards
+- `--line` #E3DDD2 — borders, rules, dividers (neutral)
+- `--ink` #0B2231 — body text and headings on light
+- `--muted` #57697A — secondary text on light
+- `--gold` #B8892C — borders/rules, large figures on light
+- `--gold-deep` #7D6228 — gold text on light (labels, eyebrows, small caps)
+- `--gold-light` #E0BA5C — gold on navy
+- `--display` "Newsreader", Georgia, serif — headings only
+- `--body` "Inter", system-ui, sans-serif — everything else
 - Min font size: 16px — HARD FLOOR, nothing smaller ever
+
+## Color Usage Rules (follow everywhere)
+- Buttons are `--navy`. **There is no blue in this palette.**
+- `--gold-deep` for gold text on light backgrounds (labels, eyebrows, small caps)
+- `--gold` for borders, rules, dividers, and large figures on light
+- `--gold-light` for gold appearing on navy
+- **Gold is NEVER a background fill or a button color**
+- Section top borders (services grid, stats, engagements, FAQ) use 2px `--gold`
+- Headings use `--display`, everything else uses `--body`
+- 16px minimum font size stays in force
 
 ## Typography Scale (smallest → largest)
 Every font-size in style.css must be ≥ 16px. No exceptions.
