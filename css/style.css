@@ -782,6 +782,96 @@ ul { list-style: none; }
   line-height: 1.75;
 }
 
+/* -- ROI / CLOSED-LOOP (centerpiece) -- */
+.roi {
+  background: var(--navy);
+  color: var(--white);
+  padding: 128px 0;
+}
+.roi__label {
+  color: var(--gold-light);
+}
+.roi .section__title {
+  color: var(--white);
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.roi__lede {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.roi__lede p {
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 24px;
+}
+.roi__lede p:last-child { margin-bottom: 0; }
+
+.roi__flow {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  max-width: 1040px;
+  margin: 72px auto;
+}
+.roi__step {
+  position: relative;
+  text-align: center;
+  padding: 0 8px;
+}
+.roi__num {
+  display: block;
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--gold-light);
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+.roi__step-label {
+  display: block;
+  font-size: 16px;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.82);
+}
+/* connecting hairlines between steps, aligned to numeral center */
+.roi__step::after {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  left: calc(50% + 24px);
+  right: calc(-50% + 24px);
+  height: 1px;
+  background: var(--gold-light);
+  opacity: 0.5;
+}
+.roi__step:last-child::after { display: none; }
+
+.roi__closing {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+}
+
+@media (max-width: 820px) {
+  .roi { padding: 88px 0; }
+  .roi__flow {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 40px;
+  }
+  /* drop the connector at the end of each 3-up row */
+  .roi__step:nth-child(3n)::after { display: none; }
+}
+
 /* -- STEPS -- */
 .steps {
   background: var(--surface);
