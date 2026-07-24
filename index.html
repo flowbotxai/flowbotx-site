@@ -434,7 +434,7 @@
             <li>&#10003;&nbsp; What your online reputation looks like</li>
             <li>&#10003;&nbsp; Exactly what we&rsquo;d improve and how</li>
           </ul>
-          <a href="#form" class="btn btn--primary" style="font-size:1.1rem;padding:1rem 2.5rem;display:inline-block;">Book My Free Checkup &rarr;</a>
+          <a href="#contact" class="btn btn--primary" style="font-size:1.1rem;padding:1rem 2.5rem;display:inline-block;">Book My Free Checkup &rarr;</a>
         </div>
         <div class="checkup-section__visual">
           <div class="checkup-card">
@@ -660,37 +660,55 @@
     </div>
   </section>
 
-  <section style="background:#060f1a;border-top:3px solid #00D4FF;padding:4rem 1rem;text-align:center;">
-    <div style="max-width:640px;margin:0 auto;">
-      <span class="section__label">Get Started Today</span>
-      <h2 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:#ffffff;margin:0.75rem 0 1rem;line-height:1.15;">Ready for Your Free Business Assessment?</h2>
-      <p style="color:#aaa;font-size:1.1rem;line-height:1.7;margin:0 auto;">Fill out the form below and we&rsquo;ll review your business within 24 hours &mdash; no obligation, no pressure.</p>
-    </div>
-  </section>
-
-  <section class="section form-section" id="form">
+  <section class="section contact" id="contact">
     <div class="container">
-      <div class="form-section__inner">
-        <div class="form-section__embed" style="max-width:700px;margin:0 auto;">
-          <iframe
-            src="https://api.flowbotx.ai/widget/form/GWRgBlv9w8IMhrRNrXEw"
-            style="width:100%;height:100%;border:none;border-radius:3px"
-            id="inline-GWRgBlv9w8IMhrRNrXEw"
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="Snapflow Business Audit"
-            data-height="1003"
-            data-layout-iframe-id="inline-GWRgBlv9w8IMhrRNrXEw"
-            data-form-id="GWRgBlv9w8IMhrRNrXEw"
-            title="Snapflow Business Audit"
-          >
-          </iframe>
-          <script src="https://api.flowbotx.ai/js/form_embed.js" defer></script>
+      <div class="section__header">
+        <span class="section__label">Get in touch</span>
+        <h2 class="section__title">Tell us what&rsquo;s going on</h2>
+      </div>
+      <div class="contact__grid">
+        <div class="contact__left">
+          <blockquote class="contact__pull">Send this and you&rsquo;ll get a confirmation, then a text back within minutes. That&rsquo;s the same system we&rsquo;d build for you &mdash; you&rsquo;re about to watch it work.</blockquote>
+          <figure class="contact__shot">
+            <!-- Uncomment when assets/text-back-screenshot.webp lands, then remove the placeholder below.
+            <img src="assets/text-back-screenshot.webp"
+                 width="320" height="569"
+                 loading="lazy"
+                 alt="Phone screenshot showing an enquiry and the automatic text reply">
+            -->
+            <div class="contact__shot-ph" role="img" aria-label="Screenshot placeholder">SCREENSHOT &mdash; phone, form submission and text-back with timestamps</div>
+            <figcaption class="contact__shot-cap">An enquiry coming in, and the customer&rsquo;s text going out. Ninety seconds.</figcaption>
+          </figure>
+          <p class="contact__alt">Or skip it and call or text <a href="tel:[TEL]" data-track="phone_tap">[NUMBER]</a></p>
+        </div>
+        <div class="contact__right">
+          <form class="contact__form" method="post" action="[WEBHOOK]">
+            <div class="field">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="cf-phone">Phone</label>
+              <input type="tel" id="cf-phone" name="phone" required autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="cf-msg">What&rsquo;s the part that&rsquo;s costing you?</label>
+              <textarea id="cf-msg" name="message" rows="4"></textarea>
+            </div>
+          <input type="hidden" name="utm_source" id="utm_source">
+          <input type="hidden" name="utm_medium" id="utm_medium">
+          <input type="hidden" name="utm_campaign" id="utm_campaign">
+          <input type="hidden" name="utm_term" id="utm_term">
+          <input type="hidden" name="utm_content" id="utm_content">
+          <input type="hidden" name="gclid" id="gclid">
+          <input type="hidden" name="gbraid" id="gbraid">
+          <input type="hidden" name="wbraid" id="wbraid">
+          <input type="hidden" name="fbclid" id="fbclid">
+          <input type="hidden" name="landing_page" id="landing_page">
+          <input type="hidden" name="referrer" id="referrer">
+            <button type="submit" class="btn btn--primary contact__submit">Send it</button>
+            <p class="contact__fineprint">By submitting, you agree to receive text messages from Snap Flow Solutions about your enquiry. Message and data rates may apply. Reply STOP to opt out. See our <a href="/privacy-policy/">Privacy Policy</a>.</p>
+          </form>
         </div>
       </div>
     </div>
@@ -729,7 +747,7 @@
           <a href="#how-it-works">How It Works</a>
           <a href="/services/">Services</a>
           <a href="#faq">FAQ</a>
-          <a href="#form">Free Checkup</a>
+          <a href="#contact">Free Checkup</a>
           <a href="/chattanooga/">Chattanooga</a>
           <a href="/privacy-policy/">Privacy Policy</a>
           <a href="/terms/">Terms of Service</a>
@@ -744,10 +762,40 @@
 
   <div class="sticky-cta">
     <a href="tel:+14232089982" class="btn btn--outline btn--sm">Call Now</a>
-    <a href="#form" class="btn btn--primary btn--sm">Free Checkup</a>
+    <a href="#contact" class="btn btn--primary btn--sm">Free Checkup</a>
   </div>
 
   <script src="js/main.js"></script>
   <script> var script = document.createElement("script"); script.setAttribute("nowprocket", ""); script.setAttribute("nitro-exclude", ""); script.src = "https://seo-tools.leadconnectorhq.com/scripts/dynamic_optimization.js"; script.dataset.uuid = "2e9754cd-8797-4172-a18f-46069c59b2e8"; script.id = "sa-dynamic-optimization"; document.head.appendChild(script); </script>
+  <script>
+    /* UTM / click-ID capture, persistence, and conversion events */
+    (function () {
+      var PARAMS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','gbraid','wbraid','fbclid'];
+      var qs = new URLSearchParams(window.location.search);
+      PARAMS.forEach(function (p) {
+        var v = qs.get(p);
+        if (v) { try { sessionStorage.setItem('sf_' + p, v); } catch (e) {} }
+        var stored;
+        try { stored = sessionStorage.getItem('sf_' + p); } catch (e) {}
+        var field = document.getElementById(p);
+        if (field && stored) { field.value = stored; }
+      });
+      var lp = document.getElementById('landing_page');
+      if (lp) { lp.value = window.location.href; }
+      var ref = document.getElementById('referrer');
+      if (ref) { ref.value = document.referrer || 'direct'; }
+      var form = document.querySelector('.contact__form');
+      if (form) {
+        form.addEventListener('submit', function () {
+          if (typeof gtag === 'function') { gtag('event', 'generate_lead'); }
+        });
+      }
+      document.querySelectorAll('[data-track="phone_tap"]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          if (typeof gtag === 'function') { gtag('event', 'phone_tap'); }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

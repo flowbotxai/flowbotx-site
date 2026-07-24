@@ -1526,7 +1526,118 @@ ul { list-style: none; }
   max-height: 300px;
 }
 
-/* -- FORM / CTA SECTION -- */
+/* -- CONTACT -- */
+.contact {
+  background: var(--surface);
+}
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.contact__pull {
+  border-left: 3px solid var(--gold);
+  padding-left: 24px;
+  font-family: var(--display);
+  font-size: 1.22rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.contact__shot {
+  max-width: 320px;
+  margin: 32px 0 0;
+}
+.contact__shot img,
+.contact__shot-ph {
+  width: 100%;
+  border: 1px solid var(--line);
+}
+.contact__shot img { display: block; }
+.contact__shot-ph {
+  aspect-ratio: 9 / 16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--white);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 1rem;
+}
+.contact__shot-cap {
+  font-family: var(--mono);
+  font-size: 16px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+.contact__alt {
+  margin-top: 28px;
+  font-size: 18px;
+  color: var(--muted);
+}
+.contact__alt a {
+  color: var(--navy);
+  font-weight: 600;
+}
+.contact__alt a:hover { color: var(--gold-deep); }
+
+.contact__form .field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.contact__form label {
+  font-family: var(--mono);
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.contact__form input,
+.contact__form textarea {
+  font-family: var(--body);
+  font-size: 18px;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 12px 14px;
+  width: 100%;
+}
+.contact__form input:focus,
+.contact__form textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+}
+.contact__form textarea { resize: vertical; }
+.contact__submit {
+  width: 100%;
+  margin-top: 8px;
+}
+.contact__fineprint {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.contact__fineprint a {
+  color: var(--navy);
+  text-decoration: underline;
+}
+
+@media (max-width: 880px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* -- FORM / CTA SECTION (legacy, other pages) -- */
 .form-section {
   background: var(--navy);
 }
