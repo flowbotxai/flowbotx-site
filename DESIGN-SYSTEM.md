@@ -18,6 +18,7 @@ Only use "AI" when it's literally the subject matter (blog about AI search engin
 - `--gold-light` #E0BA5C — gold on navy
 - `--display` "Newsreader", Georgia, serif — headings only
 - `--body` "Inter", system-ui, sans-serif — everything else
+- `--mono` "IBM Plex Mono", ui-monospace, monospace — labels, eyebrows, numerals, stat figures, captions, fine print
 - Min font size: 16px — HARD FLOOR, nothing smaller ever
 
 ## Color Usage Rules (follow everywhere)
