@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /thank-you
-Disallow: /demos/
 
 # AI Crawlers — explicitly allowed for AI search visibility
 User-agent: GPTBot
