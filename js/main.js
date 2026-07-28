@@ -35,6 +35,93 @@
     });
   }
 
+  // -- Contact form submit ----------------------------------------------
+  // Posts to the webhook in the form's own action, then sends the visitor to
+  // the thank-you page. Without this the browser navigates to whatever the
+  // webhook returns, which is a raw JSON body.
+  //
+  // The request goes out mode:'no-cors' with a urlencoded body — the same
+  // content type a native form POST would send, which keeps it a "simple"
+  // request with no preflight. The trade is that the response is opaque, so
+  // a delivered-but-rejected submission (a 5xx from the endpoint) reads as
+  // success here. Only network-level failure is detectable. Sending it as
+  // cors instead would surface those, but any missing CORS header on the
+  // endpoint would then make every successful submission look like a
+  // failure, which is the worse way to be wrong.
+  var contactForm = document.querySelector('.contact__form');
+
+  if (contactForm && window.fetch) {
+    var submitBtn = contactForm.querySelector('[type="submit"]');
+    var sending = false;
+
+    var showError = function (msg) {
+      var box = contactForm.querySelector('.contact__error');
+      if (!box) {
+        box = document.createElement('p');
+        box.className = 'contact__error';
+        box.setAttribute('role', 'alert');
+        if (submitBtn) contactForm.insertBefore(box, submitBtn);
+        else contactForm.appendChild(box);
+      }
+      box.textContent = msg;
+    };
+
+    var clearError = function () {
+      var box = contactForm.querySelector('.contact__error');
+      if (box) box.remove();
+    };
+
+    // Fire the conversion, but never let a blocked or slow gtag hold up the
+    // redirect. Whichever of the callback or the timeout lands first wins.
+    var fireLead = function (done) {
+      if (typeof gtag !== 'function') return done();
+      var fired = false;
+      var once = function () {
+        if (fired) return;
+        fired = true;
+        done();
+      };
+      setTimeout(once, 600);
+      gtag('event', 'generate_lead', { event_callback: once });
+    };
+
+    contactForm.addEventListener('submit', function (e) {
+      var action = contactForm.getAttribute('action');
+      // No endpoint wired up: fall through to the native POST rather than
+      // swallowing the submission.
+      if (!action || action.charAt(0) === '[') return;
+
+      e.preventDefault();
+      if (sending) return;
+      sending = true;
+      clearError();
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.dataset.label = submitBtn.textContent;
+        submitBtn.textContent = 'Sending…';
+      }
+
+      fetch(action, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: new URLSearchParams(new FormData(contactForm))
+      }).then(function () {
+        fireLead(function () { window.location.href = '/thank-you.html'; });
+      }).catch(function () {
+        sending = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitBtn.dataset.label || 'Send It Over';
+        }
+        showError(
+          'That didn’t send — check your connection and try again, ' +
+          'or call or text us at (586) 400-2943.'
+        );
+      });
+    });
+  }
+
   // -- Smooth Scroll for anchor links --
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {

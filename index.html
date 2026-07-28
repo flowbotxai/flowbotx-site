@@ -715,12 +715,9 @@
       if (lp) { lp.value = window.location.href; }
       var ref = document.getElementById('referrer');
       if (ref) { ref.value = document.referrer || 'direct'; }
-      var form = document.querySelector('.contact__form');
-      if (form) {
-        form.addEventListener('submit', function () {
-          if (typeof gtag === 'function') { gtag('event', 'generate_lead'); }
-        });
-      }
+      /* generate_lead is fired by the submit handler in js/main.js, after the
+         POST actually lands — firing it here too would double-count, and would
+         count submissions that never reached the webhook. */
       document.querySelectorAll('[data-track="phone_tap"]').forEach(function (el) {
         el.addEventListener('click', function () {
           if (typeof gtag === 'function') { gtag('event', 'phone_tap'); }
