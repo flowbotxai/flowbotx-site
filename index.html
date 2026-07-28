@@ -631,7 +631,10 @@
         </div>
         <div class="field">
           <label for="cf-website">Business website <span class="field__opt">optional</span></label>
-          <input type="url" id="cf-website" name="website" placeholder="yourcompany.com" autocomplete="url">
+          <!-- type="text", not type="url": url validation rejects anything without a
+               scheme, so "www.example.com" was blocking submission of an optional
+               field. js/main.js prefixes https:// before POSTing. -->
+          <input type="text" inputmode="url" id="cf-website" name="website" placeholder="yourcompany.com" autocomplete="url">
         </div>
         <div class="field">
           <label for="cf-address">Business address <span class="field__opt">optional</span></label>

@@ -102,10 +102,21 @@
         submitBtn.textContent = 'Sending…';
       }
 
+      var data = new FormData(contactForm);
+
+      // The website field is type="text" so nobody gets blocked for typing
+      // "www.example.com". Give GHL a well-formed URL anyway.
+      var site = (data.get('website') || '').trim();
+      if (site) {
+        if (site.indexOf('//') === 0) site = 'https:' + site;
+        else if (!/^[a-z][a-z0-9+.-]*:\/\//i.test(site)) site = 'https://' + site;
+      }
+      data.set('website', site);
+
       fetch(action, {
         method: 'POST',
         mode: 'no-cors',
-        body: new URLSearchParams(new FormData(contactForm))
+        body: new URLSearchParams(data)
       }).then(function () {
         fireLead(function () { window.location.href = '/thank-you.html'; });
       }).catch(function () {
