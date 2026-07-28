@@ -12,3 +12,22 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Branch deploys (rebuild--<site>.netlify.app and any other branch build).
+# Keeps test URLs out of the index — they serve the same content as
+# production with canonical tags pointing at snapflowsolutions.com, so a
+# crawled copy would read as duplicate content on a second hostname.
+# Production and deploy previews are unaffected by this block.
+#
+# The three security headers are repeated here on purpose. Netlify's
+# precedence between top-level and context-specific header blocks is not
+# something to leave to chance — restating them means the branch build gets
+# the same headers as production whether the blocks merge or the context
+# one wins outright.
+[[context.branch-deploy.headers]]
+  for = "/*"
+  [context.branch-deploy.headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Robots-Tag = "noindex, nofollow"
