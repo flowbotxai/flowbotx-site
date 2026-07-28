@@ -63,7 +63,8 @@ Claim carefully: "nearly 30 years as an owner-operator" refers to the PDR busine
 - **CSS:** Single file at `css/style.css`
 - **JS:** Single file at `js/main.js` (FAQ toggles, hamburger menu, smooth scroll)
 - **Fonts:** Google Fonts — Newsreader (400-600), Inter (400-600), IBM Plex Mono (400-500)
-- **Form:** native HTML form posting to `[WEBHOOK]` (the GHL iframe embed was removed in the rebuild)
+- **Form:** native HTML form posting to a GoHighLevel webhook trigger at
+  `services.leadconnectorhq.com` (the GHL iframe embed was removed in the rebuild)
 - **Analytics:** GA4 — G-YQFQY5E471, plus UTM/click-ID capture in `index.html`
 
 ### File Structure
@@ -108,10 +109,16 @@ Michigan rebuild. Their content is recoverable from git history if subpages are 
 10. `#contact` — single centered column form
 11. Footer + mobile sticky CTA bar
 
-### Outstanding Placeholders (site cannot go live until these are filled)
-- `[WEBHOOK]` — contact form `action`
-- 5 photo/screenshot placeholder boxes — the real `<img>` tags are already written and commented
-  out directly above each one; uncomment and delete the placeholder div
+### Outstanding Placeholders
+- `[GOOGLE_MAPS_API_KEY]` — address autocomplete on the contact form. Inert: the whole Maps
+  `<script>` is commented out in `index.html`, and the field works as a plain text input until
+  a key is added. Note that `initAddressAutocomplete` in `js/main.js` also requires an element
+  with `id="address-field"` wrapping the input, which the markup does not currently have.
+
+The webhook and phone-number placeholders are all resolved — the form posts to the live GHL
+endpoint and every phone link is a real `tel:+15864002943`. The 5 photo/screenshot placeholder
+boxes were removed when the homepage was rebuilt; the only images on the site now are the two
+logo lockups and the hero.
 
 ### Preview Workflow
 `preview.html` is a generated single file with CSS and JS inlined, for reviewing without a server:
@@ -204,7 +211,8 @@ Always use these existing classes — do NOT invent new ones unless absolutely n
 `sticky-cta`, `financing-banner`, `financing-badge`
 
 ### Contact Form (native, in `index.html` — the GHL iframe embed is retired)
-The form posts to `[WEBHOOK]` and sends these field names:
+The form posts to the GHL webhook trigger (see `action` on the `<form>` in `index.html`) and
+sends these field names:
 `first_name`, `last_name`, `business_name`, `phone`, `email`, `website`, `address`, `message`,
 plus hidden `utm_source|medium|campaign|term|content`, `gclid`, `gbraid`, `wbraid`, `fbclid`,
 `landing_page`, `referrer`.
@@ -216,7 +224,7 @@ Markup pattern: `.contact__centered` wrapper (single centered column, 620px), `.
 ```html
 <p class="section__cta">
   <a href="#contact" class="btn btn--primary">Send Us a Message</a>
-  <a href="tel:[TEL]" class="btn btn--gold" data-track="phone_tap">Call or Text Us</a>
+  <a href="tel:+15864002943" class="btn btn--gold" data-track="phone_tap">Call or Text Us</a>
 </p>
 ```
 Gold always means "phone". Every `tel:` link carries `data-track="phone_tap"` for GA4.
