@@ -8,25 +8,49 @@
 
 - **Business Name:** Snap Flow Solutions
 - **Owner:** Chris Pearce
-- **Location:** Ringgold, GA 30736 (no street address published — home-based)
-- **Service Area:** Greater Chattanooga, TN metro (East Ridge, Red Bank, Hixson, Signal Mountain, Ooltewah, Soddy-Daisy, Lookout Mountain, Collegedale, Fort Oglethorpe, Dalton, Ringgold)
-- **Phone:** (423) 208-9982 — GHL VoIP, 423 Chattanooga area code
+- **Location:** Clinton Township, MI (no street address published — home-based)
+- **Service Area:** Metro Detroit — Macomb, Oakland and Wayne counties. Cities named on the site:
+  Clinton Township, Sterling Heights, Warren, St. Clair Shores, Shelby Township, Macomb Township,
+  Roseville, Eastpointe, Fraser, Mt. Clemens, Harrison Township, Utica, Chesterfield, New Baltimore,
+  Grosse Pointe, Troy, Royal Oak, Rochester Hills. Remote work where it makes sense.
+- **Phone:** (586) 400-2943 — `tel:+15864002943`. Confirmed by Chris on 2026-07-28 and live on the site.
+  Do not use the Georgia number (423) 208-9982.
 - **Email:** hello@snapflowsolutions.com
 - **Website:** https://snapflowsolutions.com
-- **What we do:** AI-powered local marketing agency. Lead capture, automated follow-up, Google Maps/GBP optimization, review automation, AI search visibility (AEO), local SEO, CRM, reactivation campaigns.
-- **Who we serve:** Any independently owned business with a growth problem — not just blue-collar trades
-- **Pricing:** No specific prices on the website. All quoting happens through the chatbot (future) or after an audit. The chatbot gives ranges based on needs — final pricing depends on what the audit reveals and which services the client picks based on priority and budget.
+
+### Positioning (rewritten July 2026 — this is the current identity)
+Snap Flow Solutions helps **owner-operators build better businesses**. It is NOT a marketing agency,
+an AI company, an automation company, a CRM company, or a website company. Marketing, AI, automation,
+CRM, SOPs, reporting and dashboards are **implementation tools**, never the identity.
+
+- **Mission:** help owner-operated service businesses become more profitable, more organized, and
+  less dependent on the owner by improving the systems the business runs on.
+- **Who we serve:** owner-operated service companies, roughly 2–50 employees — HVAC, plumbing,
+  electrical, roofing, painting, concrete, landscaping, excavation, garage doors, flooring,
+  remodeling, auto repair, collision, body shops, PDR, chimney, general contractors.
+- **Voice:** one experienced business owner talking to another. Plain, direct, practical. No
+  corporate speak, no hype. Avoid: strategy, methodology, architecture, optimization, transformation,
+  operational excellence, digital transformation.
+- **Engagement options:** (1) I know what I need — build one project. (2) Help me decide where to
+  improve — the Business Architecture Assessment. (3) Ongoing partner.
+- **Pricing:** no prices published. Quoted after scope is defined or after the Business Architecture Assessment.
 
 ### Social Profiles
-- Google Business Profile: https://g.page/r/CSHv_mKkf2QQEBM
+⚠️ All of these were set up for the Georgia market and need verifying or rebuilding for Michigan
+before being cited anywhere on the site.
 - Facebook: https://www.facebook.com/snapflowsolutions
 - Instagram: https://www.instagram.com/snapflowsolutions
 - LinkedIn: https://www.linkedin.com/company/snapflowsolutions
-- Yelp: https://www.yelp.com/biz/snap-flow-solutions-ringgold
-- Google Review Link: https://g.page/r/CSHv_mKkf2QQEBM/review
+- Google Business Profile: needs to be created/relocated for Clinton Township, MI
+- Yelp: the existing listing is Ringgold, GA — stale
 
 ### Chris Pearce Bio (for E-E-A-T content)
-Chris ran Incidents Paintless Dent Removal for 28 years in Michigan. He did all of his own marketing and was consistently ranked first on Google across his entire service area. After relocating to Ringgold, GA, he built Snap Flow Solutions to solve the exact problems he lived for nearly three decades: missed calls, slow follow-up, weak online presence, and losing customers to competitors who respond faster. Member of BNI.
+Chris ran Incidents Paintless Dent Removal for 28 years, doing all of his own marketing and ranking
+first on Google across his service area. He now runs Snap Flow Solutions out of Clinton Township,
+Michigan, helping owner-operators fix the things he lived with for three decades: missed calls, slow
+follow-up, weak online presence, and work lost to whoever answered faster. Member of BNI.
+
+Claim carefully: "nearly 30 years as an owner-operator" refers to the PDR business, not to Snap Flow.
 
 ---
 
@@ -38,46 +62,66 @@ Chris ran Incidents Paintless Dent Removal for 28 years in Michigan. He did all 
 - **Stack:** Static HTML/CSS/JS — no framework, no build step
 - **CSS:** Single file at `css/style.css`
 - **JS:** Single file at `js/main.js` (FAQ toggles, hamburger menu, smooth scroll)
-- **Fonts:** Google Fonts — Outfit (weights 300-800)
-- **Form:** GHL (GoHighLevel) iframe embed from api.flowbotx.ai
-- **Analytics:** GA4 — G-YQFQY5E471
+- **Fonts:** Google Fonts — Newsreader (400-600), Inter (400-600), IBM Plex Mono (400-500)
+- **Form:** native HTML form posting to `[WEBHOOK]` (the GHL iframe embed was removed in the rebuild)
+- **Analytics:** GA4 — G-YQFQY5E471, plus UTM/click-ID capture in `index.html`
 
 ### File Structure
 ```
 /
-├── index.html              ← Homepage
-├── chattanooga/index.html   ← Chattanooga location page
-├── faq/index.html           ← FAQ page (10 questions)
-├── about/index.html         ← About / E-E-A-T page
-├── blog/
-│   ├── index.html           ← Blog index
-│   └── ai-search-visibility/
-│       └── index.html       ← First blog post: AI Search Visibility
-├── thank-you.html           ← Form submission thank you
-├── sitemap.xml              ← Updated with each new page
-├── robots.txt               ← AI crawlers allowed
-├── netlify.toml             ← Netlify config
-├── css/style.css            ← All styles
-├── js/main.js               ← All scripts
+├── index.html          ← Homepage — the whole site's story lives here
+├── privacy-policy/index.html
+├── terms/index.html
+├── thank-you.html      ← Form submission thank you
+├── sitemap.xml         ← 3 URLs: /, /privacy-policy/, /terms/
+├── robots.txt          ← AI crawlers explicitly allowed
+├── netlify.toml        ← publish root, catch-all 301 to /, security headers
+├── css/style.css       ← ALL styles
+├── js/main.js          ← ALL scripts
+├── preview.html        ← generated, gitignored (see Preview below)
 ├── assets/
-│   ├── snapflow-logo-transparent.png
-│   ├── snapflow-og-image.png
-│   └── chris-pearce-headshot.jpg  ← PLACEHOLDER — needs real photo
-└── CLAUDE.md                ← This file
+│   ├── snapflow-logo-lockup-navy.png         ← header
+│   ├── snapflow-logo-lockup-transparent.png  ← footer / navy grounds
+│   ├── snapflow-mark-square.png              ← favicon, GBP, social avatar
+│   ├── snapflow-logo-gold-navy.png           ← full-res original, print
+│   ├── og-image.jpg                          ← 1200x630 share card
+│   └── chris-pearce-headshot.jpg             ← PLACEHOLDER — needs real photo
+├── CLAUDE.md           ← This file
+└── DESIGN-SYSTEM.md    ← Component/style reference
 ```
 
-### URL Structure
-All subpages use folder/index.html pattern for clean URLs:
-- `/chattanooga/` → `chattanooga/index.html`
-- `/faq/` → `faq/index.html`
-- `/about/` → `about/index.html`
-- `/blog/` → `blog/index.html`
-- `/blog/ai-search-visibility/` → `blog/ai-search-visibility/index.html`
+The Chattanooga-era pages (`/chattanooga/`, `/faq/`, `/about/`, `/blog/`) were removed in the
+Michigan rebuild. Their content is recoverable from git history if subpages are rebuilt.
 
-### Asset Path Rules
-- Pages at root: `css/style.css`, `assets/...`, `js/main.js`
-- Pages 1 level deep (`/chattanooga/`, `/faq/`, `/about/`, `/blog/`): `../css/style.css`, `../assets/...`, `../js/main.js`
-- Pages 2 levels deep (`/blog/ai-search-visibility/`): `../../css/style.css`, `../../assets/...`, `../../js/main.js`
+### Homepage Section Order (IDs are anchor targets — don't rename casually)
+1. Hero — headline, one paragraph, Send Us a Message + Call or Text Us
+2. `#improve` — who we work with (trade chips) + "you don't have to buy everything"
+3. `#systems` — 22 service tiles in 7 categories (Getting Found, Winning More Work, Customer
+   Communication, Daily Operations, Workforce & Training, Know the Numbers, Capital Allocation)
+4. `#how` — Understand / Recommend / Build / Measure + the 30 / 1 / 0 stat row
+5. `#review` — Business Architecture Assessment (optional): framed panel listing the ten
+   areas analyzed, the deliverables, and the "you keep the plan" closing
+6. `#proof` — "What we usually find" (industry-level, no client named)
+7. `#engagements` — three ways to work together
+8. `#service-area` — city chips
+9. `#faq` — 6 questions
+10. `#contact` — single centered column form
+11. Footer + mobile sticky CTA bar
+
+### Outstanding Placeholders (site cannot go live until these are filled)
+- `[WEBHOOK]` — contact form `action`
+- 5 photo/screenshot placeholder boxes — the real `<img>` tags are already written and commented
+  out directly above each one; uncomment and delete the placeholder div
+
+### Preview Workflow
+`preview.html` is a generated single file with CSS and JS inlined, for reviewing without a server:
+```bash
+python3 -c "
+h=open('index.html').read()
+h=h.replace('<link rel=\"stylesheet\" href=\"css/style.css\">','<style>'+open('css/style.css').read()+'</style>')
+h=h.replace('<script src=\"js/main.js\"></script>','<script>'+open('js/main.js').read()+'</script>')
+open('preview.html','w').write(h)"
+```
 
 ### Deploy Process
 ```bash
@@ -85,25 +129,41 @@ git add .
 git commit -m "descriptive message"
 git push
 # Netlify auto-deploys within ~30 seconds
-# Then: Google Search Console → resubmit sitemap.xml → request indexing for new URLs
+# Then: Google Search Console → resubmit sitemap.xml → request indexing
 ```
+Current working branch: `rebuild`. Main branch is `main`.
 
 ---
 
 ## Design System
 
-### Brand Colors
-- Dark navy (background): `#0a0e27`
-- Deep blue: `#1e40af`
-- Blue (primary): `#3b82f6`
-- Cyan: `#06b6d4`
-- Light cyan (accent): `#22d3ee`
-- Cyan for icons/accents: `#00D4FF`
-- White: `#FFFFFF`
+### Brand Colors (navy + gold — the blue/cyan palette is retired, do not use it)
+Defined as CSS custom properties in `css/style.css` — always use `var(--token)`, never raw hex.
+- `--navy` `#002B43` — primary: buttons, dark sections
+- `--navy-deep` `#001C2D` — footer, button hover
+- `--white` `#FFFFFF` — page background, tiles
+- `--surface` `#F5F4F0` — warm off-white, alternating sections
+- `--line` `#E3DDD2` — borders, rules, dividers
+- `--ink` `#0B2231` — body text and headings on light
+- `--muted` `#57697A` — secondary text
+- `--gold` `#B8892C` — accent rules, phone/Call buttons
+- `--gold-deep` `#7D6228` — gold text on light (labels, eyebrows)
+- `--gold-light` `#E0BA5C` — gold on navy
+
+Logo file colors (for print/signage only): navy `#011A34`, gold `#E6B74C`.
 
 ### Typography
-- Font family: `'Outfit', sans-serif`
-- Weights used: 300, 400, 500, 600, 700, 800
+- `--display` — **Newsreader** (400, 500, 600) — headings, display
+- `--body` — **Inter** (400, 500, 600) — body text, buttons
+- `--mono` — **IBM Plex Mono** (400, 500) — labels, eyebrows, figures, chips
+- Outfit is retired — do not reintroduce it.
+
+### Logo Assets
+- `assets/snapflow-logo-lockup-navy.png` — header (keeps its navy ground, rounded corners)
+- `assets/snapflow-logo-lockup-transparent.png` — footer and any navy background
+- `assets/snapflow-mark-square.png` — favicon, GBP, social avatar
+- `assets/snapflow-logo-gold-navy.png` — full-resolution original for print
+- `assets/og-image.jpg` — 1200x630 share card
 
 ### CSS/HTML Patterns (BEM classes from style.css)
 Always use these existing classes — do NOT invent new ones unless absolutely necessary:
@@ -143,106 +203,91 @@ Always use these existing classes — do NOT invent new ones unless absolutely n
 **Other:**
 `sticky-cta`, `financing-banner`, `financing-badge`
 
-### GHL Form Embed (copy exactly for all pages)
-```html
-<iframe
-  src="https://api.flowbotx.ai/widget/form/GWRgBlv9w8IMhrRNrXEw"
-  style="width:100%;height:100%;border:none;border-radius:3px"
-  id="inline-GWRgBlv9w8IMhrRNrXEw"
-  data-layout="{'id':'INLINE'}"
-  data-trigger-type="alwaysShow"
-  data-trigger-value=""
-  data-activation-type="alwaysActivated"
-  data-activation-value=""
-  data-deactivation-type="neverDeactivate"
-  data-deactivation-value=""
-  data-form-name="Snapflow Business Audit"
-  data-height="1003"
-  data-layout-iframe-id="inline-GWRgBlv9w8IMhrRNrXEw"
-  data-form-id="GWRgBlv9w8IMhrRNrXEw"
-  title="Snapflow Business Audit"
-></iframe>
-<script src="https://api.flowbotx.ai/js/form_embed.js"></script>
-```
+### Contact Form (native, in `index.html` — the GHL iframe embed is retired)
+The form posts to `[WEBHOOK]` and sends these field names:
+`first_name`, `last_name`, `business_name`, `phone`, `email`, `website`, `address`, `message`,
+plus hidden `utm_source|medium|campaign|term|content`, `gclid`, `gbraid`, `wbraid`, `fbclid`,
+`landing_page`, `referrer`.
 
-### Form CTA Header (use before form section on all pages)
+Markup pattern: `.contact__centered` wrapper (single centered column, 620px), `.field` /
+`.field-row` for paired inputs, `.contact__submit` for the button.
+
+### Section CTA pattern (use at the end of every section)
 ```html
-<section style="background:#060f1a;border-top:3px solid #00D4FF;padding:4rem 1rem;text-align:center;">
-  <div style="max-width:640px;margin:0 auto;">
-    <span class="section__label">Get Started Today</span>
-    <h2 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:#ffffff;margin:0.75rem 0 1rem;line-height:1.15;">Ready for Your Free Business Assessment?</h2>
-    <p style="color:#aaa;font-size:1.1rem;line-height:1.7;margin:0 auto;">Fill out the form below and we&rsquo;ll review your business within 24 hours &mdash; no obligation, no pressure.</p>
-  </div>
-</section>
+<p class="section__cta">
+  <a href="#contact" class="btn btn--primary">Send Us a Message</a>
+  <a href="tel:[TEL]" class="btn btn--gold" data-track="phone_tap">Call or Text Us</a>
+</p>
 ```
+Gold always means "phone". Every `tel:` link carries `data-track="phone_tap"` for GA4.
 
 ---
 
 ## SEO State
 
-### What's Deployed
-- **Homepage:** Title tag, meta description, OG tags, Twitter Card, geo meta, canonical, geo subtitle under H1
-- **Schema (homepage):** ProfessionalService, Organization (with sameAs), FAQPage (7 questions), WebSite, hasOfferCatalog
-- **Technical:** robots.txt (AI crawlers allowed), sitemap.xml, GA4, Google Search Console verified
-- **GBP:** Description, 8 services, 5 categories, hours, 3 posts, logo, booking link, Q&A entries generated
-- **Citations:** Yelp, BBB, Apple Maps, Bing Places, LinkedIn, Instagram, Facebook — all with matching NAP
-- **Reviews:** 1 Google review received and responded to
-- **Pages live:** Homepage, /chattanooga/, /faq/, /about/, /blog/, /blog/ai-search-visibility/
-- **Footer:** NAP block + social SVG icon buttons on all pages
+⚠️ The Michigan rebuild is **not deployed**. Everything below describes the current repo state, not
+what is live at snapflowsolutions.com.
 
-### What's NOT Done Yet (Phase 4B remaining)
-- [ ] /ringgold/ — location page
-- [ ] /privacy-policy/ — required for trust + Google Ads
-- [ ] /terms/ — terms of service
-- [ ] /dalton/, /fort-oglethorpe/, /east-ridge/ — additional location pages
-- [ ] Newsletter signup form (GHL embed)
-- [ ] GHL integrations: review automation, chat widget, GA4 conversion events
-- [ ] Homepage H1 geo keywords (currently only in subtitle)
-- [ ] Upload real headshot to assets/chris-pearce-headshot.jpg
+### What exists in the repo
+- **Homepage:** title, meta description, OG + Twitter cards, canonical, geo meta (`US-MI`,
+  Clinton Township), favicon + apple-touch-icon, `og-image.jpg` in current brand
+- **Schema:** ProfessionalService with Clinton Township address, founder, and 12 `areaServed` cities
+- **Technical:** robots.txt (AI crawlers allowed), sitemap.xml (3 URLs), GA4 `G-YQFQY5E471`
+- **Tracking:** UTM + click-ID capture (gclid/gbraid/wbraid/fbclid) persisted to sessionStorage and
+  written into hidden form fields; `generate_lead` and `phone_tap` events fire to GA4
 
-### Google Indexing Status
-- Homepage: NOT INDEXED as of 2026-04-01. Re-crawl requested.
-- /chattanooga/: Indexing requested 2026-04-01
-- /faq/: Indexing requested 2026-04-01
-- /about/: Indexing requested 2026-04-01
-- /blog/: Indexing requested 2026-04-01
-- /blog/ai-search-visibility/: Indexing requested 2026-04-01
-- AI visibility: Not appearing in ChatGPT or Perplexity as of 2026-04-01
+### Blockers before any of this can rank
+- [ ] Michigan phone number — the site has placeholders
+- [ ] Form webhook — no submissions go anywhere yet
+- [ ] Google Business Profile for Clinton Township (nothing ranks locally without it)
+- [ ] Real photos in the 5 placeholder slots
+- [ ] Citations/NAP rebuilt for the Michigan address
+- [ ] Reviews — the Georgia review history does not transfer
 
-### Target Keywords (from keyword strategy doc)
-**Tier 1 — Target NOW:**
-AI marketing agency Chattanooga, missed call text back Chattanooga, AI lead capture Chattanooga, AI search visibility Chattanooga, AEO agency Chattanooga, Google Business Profile optimization Chattanooga, review automation Chattanooga
+### Not started
+- [ ] Location pages (`/clinton-township/`, `/sterling-heights/`, `/warren/`, …)
+- [ ] Rebuilt `/faq/`, `/about/`, `/case-studies/` subpages — homepage copy was cut to ~1,600 words
+      in July 2026 and the long-form content is in git history, ready to seed these
+- [ ] Dedicated ad landing pages (ads should never point at the homepage)
 
-**Tier 2 — Build with content:**
-local SEO Chattanooga, digital marketing Chattanooga, marketing automation small business Chattanooga, Google Maps optimization Chattanooga, lead generation Chattanooga, reputation management Chattanooga
+### Target Keywords
+⚠️ The old keyword set was Chattanooga-based and is void. New keywords need to reflect **both** the
+new geography and the new positioning (business improvement, not marketing agency). The Notion
+keyword strategy doc still holds the old Chattanooga research.
 
-**Tier 3 — Long-term (6+ months):**
-marketing agency Chattanooga, SEO company Chattanooga, digital marketing agency Chattanooga
+Direction to research: business systems / operations help for Metro Detroit service companies,
+plus the concrete tool-level terms the tiles already cover (missed call text back, Google Business
+Profile management, estimate follow-up, job workflow, SOPs) scoped to Macomb/Oakland/Wayne.
 
 ---
 
 ## Rules & Constraints
 
 ### ALWAYS:
-- Use the exact BEM CSS classes from style.css — do not create custom classes unless necessary
-- Match the homepage HTML structure for all new pages (nav, footer, form embed, sticky CTA)
-- Use the correct asset path depth (../ or ../../ depending on directory level)
-- Phone number is (423) 208-9982 / tel:+14232089982 on every page
-- GA4 tracking code on every page: G-YQFQY5E471
-- Update sitemap.xml when adding new pages
-- Include unique title tag, meta description, OG tags, Twitter Card, canonical URL, and geo meta on every page
-- Include JSON-LD structured data on every page (at minimum BreadcrumbList)
-- Include the GHL form embed on every page EXCEPT blog index
-- Commit with descriptive messages
+- Use the existing BEM classes in `css/style.css`; add new ones only when nothing fits, and append
+  them to the bottom block of the file
+- Use `var(--token)` for color, never a raw hex
+- Gold = phone. Every `tel:` link carries `data-track="phone_tap"`
+- Keep the two CTAs paired and equal weight: Send Us a Message + Call or Text Us
+- GA4 `G-YQFQY5E471` on every page
+- Unique title, meta description, OG + Twitter tags, canonical and geo meta on every page
+- JSON-LD on every page (at minimum BreadcrumbList)
+- Update `sitemap.xml` when adding pages
+- Rebuild `preview.html` after edits so review always matches the source
+- Write like an owner talking to an owner — short paragraphs, plain words, no buzzwords
 
 ### NEVER:
-- Publish Chris's home street address anywhere
-- Use the old phone number (586-400-2943)
-- Create new CSS files — everything uses css/style.css
-- Create new JS files — everything uses js/main.js
-- Modify the homepage layout, sections, or content unless specifically asked
-- Mark tasks complete in Notion before they're actually deployed and verified
-- Use inline styles when an existing CSS class exists
+- Publish Chris's home street address
+- Use the Georgia number (423) 208-9982
+- Publish a client's name, numbers, or what was found inside their business **without written
+  permission** — this is a promise made on the homepage, and the Skyline case study was pulled in
+  July 2026 for exactly this reason
+- Describe Snap Flow as a marketing agency, AI company, or automation company
+- Use the retired blue/cyan palette or the Outfit typeface
+- Create new CSS or JS files — everything lives in `css/style.css` and `js/main.js`
+- Use inline styles when a class exists
+- Overpromise results or imply Snap Flow replaces employees, office managers, or skilled labor
+- Mark tasks complete in Notion before they're deployed and verified
 
 ---
 
@@ -257,13 +302,13 @@ Page ID: `33356fc68e948033a4eed27262005a05`
 URL: https://www.notion.so/33356fc68e948033a4eed27262005a05
 
 ### Key Repo Commits
-- `2187663` — Initial deployment with meta tags, schema, robots.txt, sitemap (2026-03-30)
-- `077086b` — Chattanooga location page + sitemap update (2026-04-01)
-- `a13a8e2` — Homepage: geo subtitle, footer NAP + social links, sameAs schema (2026-04-01)
-- `0741b0f` — FAQ page with 10 questions, FAQPage schema (2026-04-01)
-- `ae55217` — About page: E-E-A-T page with Chris Pearce bio, Person schema (2026-04-01)
-- `c9930d2` — Blog index and first post: AI Search Visibility, Article schema (2026-04-01)
+- `2187663` — Initial Chattanooga deployment (2026-03-30)
+- `dcc5339` … `05d02cb` — Michigan rebuild: new design system, sections, footer, tracking (2026-07)
+- July 2026 session — repositioned to business improvement, homepage cut from 2,567 to ~1,600 words,
+  service tile catalog restored, client case study removed, real gold/navy logo installed,
+  blue/cyan brand retired
 
----
+Long-form copy removed from the homepage (full FAQ, systems detail, Skyline case study) is
+recoverable with `git show <commit>:index.html` — useful when building subpages.
 
-*Last updated: 2026-04-01*
+*Last updated: 2026-07-27*

@@ -118,7 +118,7 @@ Citability content goes in JSON-LD schema description fields, NOT as a visible b
 Icon + title + description. Dark and light variants.
 
 ### Deal of the Week Banner
-Dark bg, cyan borders, links to /offer/.
+Navy bg, gold borders, links to /offer/.
 
 ## Global Rules
 1. No inline styles — all in css/style.css
