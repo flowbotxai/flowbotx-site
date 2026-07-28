@@ -5,83 +5,35 @@
 (function () {
   'use strict';
 
-  // -- Contact details assembled at runtime -----------------------------
-  // The number and address are base64 in the markup so harvesters that don't
-  // run JS never see them. Links fall back to the contact form without JS.
-  (function () {
-    function decode(v) { try { return atob(v); } catch (e) { return ''; } }
+  // -- Mobile nav toggle -------------------------------------------------
+  // Toggles the single .site-header__nav list rather than a duplicate mobile
+  // copy, so there is only ever one set of nav links in the markup.
+  var navToggle = document.querySelector('.site-header__toggle');
+  var siteNav = document.getElementById('siteNav');
 
-    document.querySelectorAll('[data-tel]').forEach(function (el) {
-      var number = decode(el.getAttribute('data-tel'));
-      if (!number) return;
-      el.setAttribute('href', 'tel:' + number);
-      el.removeAttribute('data-tel');
+  if (navToggle && siteNav) {
+    var setNav = function (open) {
+      siteNav.classList.toggle('is-open', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
+    navToggle.addEventListener('click', function () {
+      setNav(!siteNav.classList.contains('is-open'));
     });
 
-    document.querySelectorAll('[data-em]').forEach(function (el) {
-      var address = decode(el.getAttribute('data-em'));
-      if (!address) return;
-      el.setAttribute('href', 'mailto:' + address);
-      el.removeAttribute('data-em');
-    });
-  })();
-
-
-  // -- Mobile Nav Toggle --
-  const hamburger = document.querySelector('.nav__hamburger');
-  const mobileNav = document.getElementById('mobileNav');
-
-  if (hamburger && mobileNav) {
-    hamburger.addEventListener('click', function () {
-      const isOpen = mobileNav.classList.toggle('is-open');
-      hamburger.setAttribute('aria-expanded', isOpen);
+    // Close after choosing a destination
+    siteNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setNav(false); });
     });
 
-    // Close mobile nav when a link is clicked
-    mobileNav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        mobileNav.classList.remove('is-open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
-
-  // -- Services Dropdown --
-  var dropdown = document.querySelector('.nav__dropdown');
-  var trigger = document.querySelector('.nav__dropdown-trigger');
-  if (dropdown && trigger) {
-    trigger.addEventListener('click', function (e) {
-      e.preventDefault();
-      dropdown.classList.toggle('is-open');
+    // Close on Escape, and on click outside the header
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setNav(false);
     });
     document.addEventListener('click', function (e) {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove('is-open');
-      }
+      if (!e.target.closest('.site-header')) setNav(false);
     });
   }
-
-  // -- FAQ Accordion --
-  const faqItems = document.querySelectorAll('.faq__item');
-
-  faqItems.forEach(function (item) {
-    const question = item.querySelector('.faq__question');
-    if (!question) return;
-
-    question.addEventListener('click', function () {
-      const isOpen = item.classList.contains('is-open');
-
-      // Close all
-      faqItems.forEach(function (other) {
-        other.classList.remove('is-open');
-      });
-
-      // Open clicked (if it wasn't already open)
-      if (!isOpen) {
-        item.classList.add('is-open');
-      }
-    });
-  });
 
   // -- Smooth Scroll for anchor links --
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
@@ -94,9 +46,9 @@
         target.scrollIntoView({ behavior: 'smooth' });
 
         // Close mobile nav if open
-        if (mobileNav && mobileNav.classList.contains('is-open')) {
-          mobileNav.classList.remove('is-open');
-          hamburger.setAttribute('aria-expanded', 'false');
+        if (siteNav && siteNav.classList.contains('is-open')) {
+          siteNav.classList.remove('is-open');
+          if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
         }
       }
     });
