@@ -415,34 +415,6 @@ ul { list-style: none; }
   background: var(--white);
 }
 
-.services__report {
-  margin: 0 0 48px;
-}
-.services__report img,
-.services__report img {
-  display: block;
-}
-.services__report-ph {
-  aspect-ratio: 16 / 9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: var(--surface);
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 16px;
-  letter-spacing: 1px;
-  padding: 1rem;
-}
-.services__report-cap {
-  font-family: var(--mono);
-  font-size: 16px;
-  color: var(--muted);
-  margin-top: 12px;
-  text-align: center;
-}
-
 .services__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1316,9 +1288,15 @@ ul { list-style: none; }
   font-weight: 600;
 }
 
-/* -- SERVICE CATALOG GRID: last tile spans the row -- */
-.services__grid--catalog .services__tile:last-child {
-  grid-column: 1 / -1;
+/* -- SERVICE CATALOG GRID: last tile spans the row --
+   Only at 3 columns. The catalog is 22 tiles; spanning the last one leaves
+   21 to fill the normal columns, which divides evenly by 3 but not by 2 —
+   at the 2-column breakpoint that orphaned an empty cell next to the
+   second-to-last tile. Below 1025px the tile behaves like any other. */
+@media (min-width: 1025px) {
+  .services__grid--catalog .services__tile:last-child {
+    grid-column: 1 / -1;
+  }
 }
 
 /* -- CASE STUDY: bullet lists on the dark ground -- */
@@ -1876,7 +1854,7 @@ ul { list-style: none; }
 .contact__nap p { margin: 0; }
 .contact__nap-name {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 16px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--gold-light);
