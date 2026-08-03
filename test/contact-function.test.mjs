@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { handler } from './contact.mjs';
+import { handler } from '../netlify/functions/contact.mjs';
 
 const validBody = new URLSearchParams({
   first_name: 'Chris', last_name: 'Pearce', business_name: 'Snap Flow',
