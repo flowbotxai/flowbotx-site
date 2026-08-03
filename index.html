@@ -604,7 +604,7 @@
             <p><a href="mailto:hello@snapflowsolutions.com">hello@snapflowsolutions.com</a></p>
           </div>
         </aside>
-<form class="contact__form" method="post" action="https://services.leadconnectorhq.com/hooks/liRwy27BujTGz6AWiWGl/webhook-trigger/04714871-515a-41cf-a03f-a75b805b59f5">
+<form class="contact__form" method="post" action="/.netlify/functions/contact">
         <div class="field-row">
           <div class="field">
             <label for="cf-first">First name</label>
@@ -655,6 +655,10 @@
         <input type="hidden" name="fbclid" id="fbclid">
         <input type="hidden" name="landing_page" id="landing_page">
         <input type="hidden" name="referrer" id="referrer">
+        <div class="field" aria-hidden="true" hidden>
+          <label for="cf-company-fax">Company fax</label>
+          <input type="text" id="cf-company-fax" name="company_fax" tabindex="-1" autocomplete="off">
+        </div>
         <button type="submit" class="btn btn--primary contact__submit">Send It Over</button>
         <p class="contact__fineprint">By submitting, you agree to receive text messages from Snap Flow Solutions about your inquiry. Message and data rates may apply. Reply STOP to opt out. See our <a href="/privacy-policy/">Privacy Policy</a>.</p>
         </form>

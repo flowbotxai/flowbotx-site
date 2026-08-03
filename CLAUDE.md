@@ -63,8 +63,9 @@ Claim carefully: "nearly 30 years as an owner-operator" refers to the PDR busine
 - **CSS:** Single file at `css/style.css`
 - **JS:** Single file at `js/main.js` (FAQ toggles, hamburger menu, smooth scroll)
 - **Fonts:** Google Fonts — Newsreader (400-600), Inter (400-600), IBM Plex Mono (400-500)
-- **Form:** native HTML form posting to a GoHighLevel webhook trigger at
-  `services.leadconnectorhq.com` (the GHL iframe embed was removed in the rebuild)
+- **Form:** native HTML form posting to the same-origin Netlify Function at
+  `/.netlify/functions/contact`. The function forwards to GoHighLevel using the
+  server-only `GHL_CONTACT_WEBHOOK_URL` environment variable.
 - **Analytics:** GA4 — G-YQFQY5E471, plus UTM/click-ID capture in `index.html`
 
 ### File Structure
@@ -76,7 +77,8 @@ Claim carefully: "nearly 30 years as an owner-operator" refers to the PDR busine
 ├── thank-you.html      ← Form submission thank you
 ├── sitemap.xml         ← 3 URLs: /, /privacy-policy/, /terms/
 ├── robots.txt          ← AI crawlers explicitly allowed
-├── netlify.toml        ← publish root, catch-all 301 to /, security headers
+├── netlify.toml        ← publish root, functions directory, redirects, security headers
+├── netlify/functions/contact.mjs ← validates form posts and forwards to GHL
 ├── css/style.css       ← ALL styles
 ├── js/main.js          ← ALL scripts
 ├── preview.html        ← generated, gitignored (see Preview below)
@@ -115,8 +117,8 @@ Michigan rebuild. Their content is recoverable from git history if subpages are 
   a key is added. Note that `initAddressAutocomplete` in `js/main.js` also requires an element
   with `id="address-field"` wrapping the input, which the markup does not currently have.
 
-The webhook and phone-number placeholders are all resolved — the form posts to the live GHL
-endpoint and every phone link is a real `tel:+15864002943`. The 5 photo/screenshot placeholder
+The webhook and phone-number placeholders are all resolved — Netlify stores the live GHL endpoint
+as `GHL_CONTACT_WEBHOOK_URL`, and every phone link is a real `tel:+15864002943`. The 5 photo/screenshot placeholder
 boxes were removed when the homepage was rebuilt; the only images on the site now are the two
 logo lockups and the hero.
 
@@ -211,8 +213,8 @@ Always use these existing classes — do NOT invent new ones unless absolutely n
 `sticky-cta`, `financing-banner`, `financing-badge`
 
 ### Contact Form (native, in `index.html` — the GHL iframe embed is retired)
-The form posts to the GHL webhook trigger (see `action` on the `<form>` in `index.html`) and
-sends these field names:
+The form posts to `/.netlify/functions/contact`; the function forwards to the GHL webhook stored in
+the `GHL_CONTACT_WEBHOOK_URL` Netlify environment variable. It sends these field names:
 `first_name`, `last_name`, `business_name`, `phone`, `email`, `website`, `address`, `message`,
 plus hidden `utm_source|medium|campaign|term|content`, `gclid`, `gbraid`, `wbraid`, `fbclid`,
 `landing_page`, `referrer`.

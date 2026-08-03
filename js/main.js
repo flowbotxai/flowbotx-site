@@ -36,18 +36,9 @@
   }
 
   // -- Contact form submit ----------------------------------------------
-  // Posts to the webhook in the form's own action, then sends the visitor to
-  // the thank-you page. Without this the browser navigates to whatever the
-  // webhook returns, which is a raw JSON body.
-  //
-  // The request goes out mode:'no-cors' with a urlencoded body — the same
-  // content type a native form POST would send, which keeps it a "simple"
-  // request with no preflight. The trade is that the response is opaque, so
-  // a delivered-but-rejected submission (a 5xx from the endpoint) reads as
-  // success here. Only network-level failure is detectable. Sending it as
-  // cors instead would surface those, but any missing CORS header on the
-  // endpoint would then make every successful submission look like a
-  // failure, which is the worse way to be wrong.
+  // Posts to our same-origin Netlify Function. The function validates the
+  // request and forwards it to GHL, keeping the real webhook URL out of the
+  // browser, page source, and repository.
   var contactForm = document.querySelector('.contact__form');
 
   if (contactForm && window.fetch) {
@@ -115,9 +106,9 @@
 
       fetch(action, {
         method: 'POST',
-        mode: 'no-cors',
         body: new URLSearchParams(data)
-      }).then(function () {
+      }).then(function (response) {
+        if (!response.ok) throw new Error('Contact endpoint rejected submission');
         fireLead(function () { window.location.href = '/thank-you.html'; });
       }).catch(function () {
         sending = false;
