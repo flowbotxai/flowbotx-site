@@ -41,6 +41,7 @@ test('forwards only approved fields to the configured GHL webhook', async () => 
   const result = await handler(event(validBody + '&admin=true'));
   assert.equal(result.statusCode, 200);
   assert.equal(request.url, process.env.GHL_CONTACT_WEBHOOK_URL);
-  assert.equal(new URLSearchParams(request.options.body).get('admin'), null);
-  assert.equal(new URLSearchParams(request.options.body).get('email'), 'chris@example.com');
+  assert.equal(JSON.parse(request.options.body).admin, undefined);
+  assert.equal(JSON.parse(request.options.body).email, 'chris@example.com');
+  assert.equal(request.options.headers['content-type'], 'application/json');
 });
