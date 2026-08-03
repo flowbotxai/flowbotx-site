@@ -81,8 +81,8 @@ export async function handler(event) {
   try {
     const upstream = await fetch(webhookUrl, {
       method: 'POST',
-      headers: { 'content-type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-      body: output.toString(),
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(output)),
       signal: AbortSignal.timeout(10_000)
     });
 
