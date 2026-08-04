@@ -659,6 +659,7 @@
           <label for="cf-company-fax">Company fax</label>
           <input type="text" id="cf-company-fax" name="company_fax" tabindex="-1" autocomplete="off">
         </div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAEFnVgJxkyebU4di" data-action="contact_form"></div>
         <button type="submit" class="btn btn--primary contact__submit">Send It Over</button>
         <p class="contact__fineprint">By submitting, you agree to receive text messages from Snap Flow Solutions about your inquiry. Message and data rates may apply. Reply STOP to opt out. See our <a href="/privacy-policy/">Privacy Policy</a>.</p>
         </form>
@@ -704,6 +705,7 @@
        field works as a plain text input until you do.
   <script async src="https://maps.googleapis.com/maps/api/js?key=[GOOGLE_MAPS_API_KEY]&loading=async&libraries=places&callback=initAddressAutocomplete"></script>
   -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script src="js/main.js"></script>
   <script>
     /* UTM / click-ID capture, persistence, and conversion events */
