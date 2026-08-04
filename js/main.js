@@ -112,6 +112,7 @@
         fireLead(function () { window.location.href = '/thank-you.html'; });
       }).catch(function () {
         sending = false;
+        if (window.turnstile) window.turnstile.reset();
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.textContent = submitBtn.dataset.label || 'Send It Over';

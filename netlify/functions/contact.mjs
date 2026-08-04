@@ -6,6 +6,8 @@ const ALLOWED_FIELDS = [
 
 const REQUIRED_FIELDS = ['first_name', 'last_name', 'business_name', 'phone', 'email', 'message'];
 const DEFAULT_ALLOWED_HOSTS = new Set(['snapflowsolutions.com', 'www.snapflowsolutions.com']);
+const TURNSTILE_VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+const TURNSTILE_ACTION = 'contact_form';
 const MAX_BODY_BYTES = 32_000;
 const MAX_FIELD_LENGTH = 4_000;
 
@@ -40,6 +42,40 @@ function requestHost(event) {
   }
 }
 
+async function verifyTurnstile(event, token) {
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (!secret) {
+    console.error('TURNSTILE_SECRET_KEY is not configured');
+    return { ok: false, statusCode: 503, message: 'Contact form is temporarily unavailable' };
+  }
+
+  const headers = event.headers || {};
+  const remoteIp = headers['x-nf-client-connection-ip'] || headers['X-Nf-Client-Connection-Ip'] ||
+    (headers['x-forwarded-for'] || headers['X-Forwarded-For'] || '').split(',')[0].trim();
+  const body = new URLSearchParams({ secret, response: token });
+  if (remoteIp) body.set('remoteip', remoteIp);
+
+  try {
+    const result = await fetch(TURNSTILE_VERIFY_URL, {
+      method: 'POST',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      body,
+      signal: AbortSignal.timeout(8_000)
+    });
+    if (!result.ok) throw new Error(`Turnstile returned status ${result.status}`);
+
+    const verification = await result.json();
+    const verifiedHost = (verification.hostname || '').toLowerCase();
+    if (!verification.success || !allowedHosts().has(verifiedHost) || verification.action !== TURNSTILE_ACTION) {
+      return { ok: false, statusCode: 403, message: 'Security check failed. Please try again.' };
+    }
+    return { ok: true };
+  } catch (error) {
+    console.error('Turnstile verification failed', error instanceof Error ? error.message : 'unknown error');
+    return { ok: false, statusCode: 502, message: 'Unable to verify submission' };
+  }
+}
+
 export async function handler(event) {
   if (event.httpMethod !== 'POST') {
     return { ...response(405, 'Method not allowed'), headers: { ...response(405, '').headers, allow: 'POST' } };
@@ -57,6 +93,12 @@ export async function handler(event) {
 
   const input = new URLSearchParams(rawBody);
   if (input.get('company_fax')) return response(200, 'Submission received');
+
+  const turnstileToken = (input.get('cf-turnstile-response') || '').trim();
+  if (!turnstileToken) return response(403, 'Please complete the security check');
+
+  const turnstile = await verifyTurnstile(event, turnstileToken);
+  if (!turnstile.ok) return response(turnstile.statusCode, turnstile.message);
 
   for (const field of REQUIRED_FIELDS) {
     if (!(input.get(field) || '').trim()) return response(400, 'Please complete all required fields');
