@@ -5,6 +5,45 @@
 (function () {
   'use strict';
 
+  // Add the existing-client request hub to compact service-page headers that
+  // share this script. The homepage and hub already include the link in HTML.
+  document.querySelectorAll('.site-header__nav').forEach(function (nav) {
+    if (!nav.querySelector('a[href="/client-requests/"]')) {
+      var requestLink = document.createElement('a');
+      requestLink.href = '/client-requests/';
+      requestLink.textContent = 'Client Requests';
+      nav.appendChild(requestLink);
+    }
+  });
+
+  // -- Existing-client request journey ----------------------------------
+  // The hub click is an intent signal. A successful request is counted only
+  // on a dedicated success URL that GHL must use after a valid submission.
+  document.querySelectorAll('a[href="/client-work-request/"], a[href="/project-request/"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (typeof gtag !== 'function') return;
+      var requestType = link.getAttribute('href').indexOf('client-work') !== -1 ? 'work' : 'project';
+      gtag('event', 'request_form_open', {
+        request_type: requestType,
+        link_url: link.href
+      });
+    });
+  });
+
+  var requestSuccess = document.body.getAttribute('data-request-success');
+  if (requestSuccess && typeof gtag === 'function') {
+    var successEvent = requestSuccess === 'project' ? 'project_request_submit' : 'work_request_submit';
+    var successKey = 'snapflow_' + successEvent + '_' + window.location.pathname;
+    if (!window.sessionStorage.getItem(successKey)) {
+      window.sessionStorage.setItem(successKey, '1');
+      gtag('event', successEvent, { request_type: requestSuccess });
+      gtag('event', 'generate_lead', {
+        lead_source: 'client_request',
+        request_type: requestSuccess
+      });
+    }
+  }
+
   // -- Mobile nav toggle -------------------------------------------------
   // Toggles the single .site-header__nav list rather than a duplicate mobile
   // copy, so there is only ever one set of nav links in the markup.

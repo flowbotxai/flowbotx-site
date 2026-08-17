@@ -18,13 +18,16 @@
 - **Email:** hello@snapflowsolutions.com
 - **Website:** https://snapflowsolutions.com
 
-### Positioning (rewritten July 2026 — this is the current identity)
-Snap Flow Solutions helps **owner-operators build better businesses**. It is NOT a marketing agency,
-an AI company, an automation company, a CRM company, or a website company. Marketing, AI, automation,
-CRM, SOPs, reporting and dashboards are **implementation tools**, never the identity.
+### Positioning (approved August 16, 2026 — current identity)
+Snap Flow Solutions is a **digital marketing and business growth agency for service businesses**.
+Digital marketing is the leading market category. Local SEO, Google Maps, Google Ads, websites,
+landing pages, lead generation, reputation, CRM and conversion tracking are core revenue services.
+Business consulting and operations improvement are major differentiators. AI implementation and
+automation are technology differentiators. The company should never be presented as SEO-only,
+AI-only, automation-only, or as a vague consultancy that hides its marketing services.
 
-- **Mission:** help owner-operated service businesses become more profitable, more organized, and
-  less dependent on the owner by improving the systems the business runs on.
+- **Mission:** help owner-operated service businesses get found, generate qualified leads, improve
+  operations, and implement practical AI systems that produce measurable business growth.
 - **Who we serve:** owner-operated service companies, roughly 2–50 employees — HVAC, plumbing,
   electrical, roofing, painting, concrete, landscaping, excavation, garage doors, flooring,
   remodeling, auto repair, collision, body shops, PDR, chimney, general contractors.
@@ -261,13 +264,14 @@ what is live at snapflowsolutions.com.
 - [ ] Dedicated ad landing pages (ads should never point at the homepage)
 
 ### Target Keywords
-⚠️ The old keyword set was Chattanooga-based and is void. New keywords need to reflect **both** the
-new geography and the new positioning (business improvement, not marketing agency). The Notion
-keyword strategy doc still holds the old Chattanooga research.
+⚠️ The old keyword set is void. The only active keyword and competitor evidence is the August 16,
+2026 Snapflow AI Clinton Township-radius DataForSEO research in the canonical Notion workspace.
 
-Direction to research: business systems / operations help for Metro Detroit service companies,
-plus the concrete tool-level terms the tiles already cover (missed call text back, Google Business
-Profile management, estimate follow-up, job workflow, SOPs) scoped to Macomb/Oakland/Wayne.
+Approved demand clusters: digital marketing agency/services, local SEO and Google Maps, Google Ads
+and paid-search management, lead generation and conversion systems, business consulting and
+operations improvement, and AI implementation/automation. Target only the portions of Macomb and
+Oakland counties inside the approved approximately 15-mile service radius. Do not create a thin page
+for every town or use older location, keyword, competitor, or SEO material.
 
 ---
 
@@ -292,7 +296,7 @@ Profile management, estimate follow-up, job workflow, SOPs) scoped to Macomb/Oak
 - Publish a client's name, numbers, or what was found inside their business **without written
   permission** — this is a promise made on the homepage, and the Skyline case study was pulled in
   July 2026 for exactly this reason
-- Describe Snap Flow as a marketing agency, AI company, or automation company
+- Describe Snap Flow as only an SEO company, only an AI company, or only an automation company
 - Use the retired blue/cyan palette or the Outfit typeface
 - Create new CSS or JS files — everything lives in `css/style.css` and `js/main.js`
 - Use inline styles when a class exists

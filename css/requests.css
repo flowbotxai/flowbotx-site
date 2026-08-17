@@ -113,10 +113,39 @@
 }
 .request-next p + p { margin-top: 14px; }
 
+.request-choice-section { padding: 76px 0 96px; }
+.request-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+.request-choice-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 42px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--navy);
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: 0 18px 48px rgba(0, 43, 67, 0.08);
+}
+.request-choice-card--featured { border-top-color: var(--gold); }
+.request-choice-card h2 { margin-bottom: 14px; font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.15; }
+.request-choice-card > p { color: var(--muted); }
+.request-choice-list { display: grid; gap: 10px; width: 100%; margin: 26px 0 32px; }
+.request-choice-list li { padding-left: 22px; position: relative; }
+.request-choice-list li::before { content: "✓"; position: absolute; left: 0; color: var(--gold-deep); font-weight: 700; }
+.request-choice-card .btn { margin-top: auto; }
+
 @media (max-width: 640px) {
   .request-page .site-header__actions .btn { display: none; }
   .request-hero { padding: 58px 0 56px; }
   .request-form-section { padding: 56px 0 72px; }
   .request-form-embed { padding: 0; border-radius: 8px; }
   .request-next { padding: 30px 24px; }
+  .request-choice-grid { grid-template-columns: 1fr; }
+  .request-choice-card { padding: 30px 24px; }
 }
