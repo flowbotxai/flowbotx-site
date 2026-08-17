@@ -5,6 +5,17 @@
 (function () {
   'use strict';
 
+  // Add the existing-client request hub to compact service-page headers that
+  // share this script. The homepage and hub already include the link in HTML.
+  document.querySelectorAll('.site-header__nav').forEach(function (nav) {
+    if (!nav.querySelector('a[href="/client-requests/"]')) {
+      var requestLink = document.createElement('a');
+      requestLink.href = '/client-requests/';
+      requestLink.textContent = 'Client Requests';
+      nav.appendChild(requestLink);
+    }
+  });
+
   // -- Mobile nav toggle -------------------------------------------------
   // Toggles the single .site-header__nav list rather than a duplicate mobile
   // copy, so there is only ever one set of nav links in the markup.
