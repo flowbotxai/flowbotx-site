@@ -1,0 +1,35 @@
+# AI Dent Guy now operates as a PDR-specific product of Snap Flow Solutions.
+# These rules activate after aidentguy.com and www.aidentguy.com are added as
+# domain aliases to this Netlify site.
+
+https://aidentguy.com/ https://snapflowsolutions.com/pdr-automation/ 301!
+https://www.aidentguy.com/ https://snapflowsolutions.com/pdr-automation/ 301!
+http://aidentguy.com/* https://aidentguy.com/:splat 301!
+http://www.aidentguy.com/* https://www.aidentguy.com/:splat 301!
+
+https://aidentguy.com/pricing/* https://snapflowsolutions.com/pdr-automation/ 301!
+https://www.aidentguy.com/pricing/* https://snapflowsolutions.com/pdr-automation/ 301!
+https://aidentguy.com/our-product/* https://snapflowsolutions.com/pdr-automation/ 301!
+https://www.aidentguy.com/our-product/* https://snapflowsolutions.com/pdr-automation/ 301!
+https://aidentguy.com/our-products/* https://snapflowsolutions.com/pdr-automation/ 301!
+https://www.aidentguy.com/our-products/* https://snapflowsolutions.com/pdr-automation/ 301!
+https://aidentguy.com/our-services/* https://snapflowsolutions.com/pdr-automation/ 301!
+https://www.aidentguy.com/our-services/* https://snapflowsolutions.com/pdr-automation/ 301!
+https://aidentguy.com/individual-services/* https://snapflowsolutions.com/pdr-automation/ 301!
+https://www.aidentguy.com/individual-services/* https://snapflowsolutions.com/pdr-automation/ 301!
+https://aidentguy.com/pdr-survival-kit/* https://snapflowsolutions.com/pdr-automation/ 301!
+https://www.aidentguy.com/pdr-survival-kit/* https://snapflowsolutions.com/pdr-automation/ 301!
+https://aidentguy.com/about/* https://snapflowsolutions.com/pdr-automation/ 301!
+https://www.aidentguy.com/about/* https://snapflowsolutions.com/pdr-automation/ 301!
+https://aidentguy.com/faqs/* https://snapflowsolutions.com/pdr-automation/#faq 301!
+https://www.aidentguy.com/faqs/* https://snapflowsolutions.com/pdr-automation/#faq 301!
+https://aidentguy.com/contact/* https://snapflowsolutions.com/#contact 301!
+https://www.aidentguy.com/contact/* https://snapflowsolutions.com/#contact 301!
+https://aidentguy.com/terms-and-conditions/* https://snapflowsolutions.com/terms/ 301!
+https://www.aidentguy.com/terms-and-conditions/* https://snapflowsolutions.com/terms/ 301!
+https://aidentguy.com/privacy-policy/* https://snapflowsolutions.com/privacy-policy/ 301!
+https://www.aidentguy.com/privacy-policy/* https://snapflowsolutions.com/privacy-policy/ 301!
+
+# Old articles, archives, test pages and any unknown legacy URL are retired.
+https://aidentguy.com/* /retired-content.html 404!
+https://www.aidentguy.com/* /retired-content.html 404!
