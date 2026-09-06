@@ -1410,7 +1410,13 @@ ul { list-style: none; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 16px;
+  width: 100%;
+  max-width: none;
+  margin-right: auto;
+  margin-left: auto;
+  grid-column: 1 / -1;
 }
 .proof .btn--outline {
   color: var(--white);
